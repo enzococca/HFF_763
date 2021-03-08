@@ -428,42 +428,103 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
             self.tableWidget_activity.setItemDelegateForColumn(0,self.delegateMater2)
             
             ############RESOURCE SUMMARY###############################
-            valuesHP = ["Archaeological Site","Archaeological Feature/Component","Landscape/Seascape","Urban Heritage","Structural Heritage"]
+            valuesHP = ["Archaeological Site","Archaeological Feature/Component","Landscape/Seascape","Urban Heritage","Structural Heritage",""]
             self.delegateHP = ComboBoxDelegate()
             self.delegateHP.def_values(valuesHP)
             self.delegateHP.def_editable('True')
             self.tableWidget_hplacetype.setItemDelegateForColumn(0,self.delegateHP)
             
-            valuesHP2 = ["Agricultural/Pastoral","Defensive/Fortification","Domestic","Entertainment/Leisure","Funerary/Memorial","Hunting/Fishing","Hydrological","Industrial/Productive","Infrastructure/Transport","Maritime","Military","Public /Institutional","Religious","Status/Display/Monumental","Trade/Commercial","Unknown"]
+            valuesHP2 = ["Agricultural/Pastoral","Defensive/Fortification","Domestic","Entertainment/Leisure","Funerary/Memorial","Hunting/Fishing","Hydrological","Industrial/Productive","Infrastructure/Transport","Maritime","Military","Public /Institutional","Religious","Status/Display/Monumental","Trade/Commercial","Unknown",""]
             self.delegateHP2 = ComboBoxDelegate()
             self.delegateHP2.def_values(valuesHP2)
             self.delegateHP2.def_editable('True')
             self.tableWidget_hplacefuntion.setItemDelegateForColumn(0,self.delegateHP2)
             
-            valuesHP3 = ["Not Applicable", "Negligible", "Low", "Medium", "High", "Definite"]
+            valuesHP3 = ["Not Applicable", "Negligible", "Low", "Medium", "High", "Definite",""]
             self.delegateHP3 = ComboBoxDelegate()
             self.delegateHP3.def_values(valuesHP3)
             self.delegateHP3.def_editable('True')
             self.tableWidget_hplacefunctioncertainty.setItemDelegateForColumn(0,self.delegateHP3)
             ##########################GEOMETRIES###############################################################
             
-            valuesHP4 = ["Not Applicable", "Negligible", "Low", "Medium", "High", "Definite"]
+            valuesHP4 = ["Not Applicable", "Negligible", "Low", "Medium", "High", "Definite",""]
             self.delegateHP4 = ComboBoxDelegate()
             self.delegateHP4.def_values(valuesHP4)
             self.delegateHP4.def_editable('True')
             self.tableWidget_geometry_extent.setItemDelegateForColumn(0,self.delegateHP4)
             
-            valuesHP5 = ["Not Applicable", "Negligible", "Low", "Medium", "High", "Definite"]
+            valuesHP5 = ["Not Applicable", "Negligible", "Low", "Medium", "High", "Definite",""]
             self.delegateHP5 = ComboBoxDelegate()
             self.delegateHP5.def_values(valuesHP5)
             self.delegateHP5.def_editable('True')
             self.tableWidget_site_location_certainty.setItemDelegateForColumn(0,self.delegateHP5)
             
-            valuesHP6 = ["Algeria","Bahrain","Djibouti","Egypt","Eritrea","Ethiopia","Iran (Islamic Republic of)","Iraq","Israel","Jordan","Kuwait","Lebanon","Libya","Mauretania","Morocco","Oman","Palestine, State of","Qatar","Saudi Arabia","Sudan","Syrian Arab Republic","Tunisia","Turkey","United Arab Emirates","Western Sahara","Yemen","Other"]
+            valuesHP6 = ["Algeria","Bahrain","Djibouti","Egypt","Eritrea","Ethiopia","Iran (Islamic Republic of)","Iraq","Israel","Jordan","Kuwait","Lebanon","Libya","Mauretania","Morocco","Oman","Palestine, State of","Qatar","Saudi Arabia","Sudan","Syrian Arab Republic","Tunisia","Turkey","United Arab Emirates","Western Sahara","Yemen","Other",""]
             self.delegateHP6 = ComboBoxDelegate()
             self.delegateHP6.def_values(valuesHP6)
             self.delegateHP6.def_editable('True')
             self.tableWidget_country_type.setItemDelegateForColumn(0,self.delegateHP6)
+            
+            valuesHP7 = ["Palaeolithic, Lower (Levant/Arabia/Mesopotamia)","Palaeolithic, Middle (Levant/Arabia/Mesopotamia)","Palaeolithic, Upper (Levant/Arabia/Mesopotamia)","Palaeolithic, Lower (Iran)","Palaeolithic, Middle (Iran)","Palaeolithic, Upper (Iran)","Paleolithic, Lower (North Africa)","Paleolithic, Middle (North Africa)","Paleolithic, Upper (North Africa)","Epipalaeolithic, Early (Levant/Mesopotamia)","Epipalaeolithic, Late (Levant/Mesopotamia)","Epipalaeolithic, Early (Arabia)","Epipalaeolithic, Late (Arabia)","Epipalaeolithic, Early (Iran)","Epipalaeolithic, Late (Iran)","Epipalaeolithic (North Africa)","Neolithic, Early/Aceramic/Pre-Pottery (Levant/Mesopotamia)","Neolithic, Early/Aceramic/Pre-Pottery  A (Levant/Mesopotamia)","Neolithic, Early/Aceramic/Pre-Pottery  B (Levant/Mesopotamia)","Neolithic, Early/Aceramic/Pre-Pottery  C (South Levant)","Neolithic, Late/Ceramic/Pottery (Levant/Mesopotamia)","Neolithic, Late/Ceramic/Pottery, Early (Levant/Mesopotamia)","Neolithic, Late/Ceramic/Pottery, Late (Levant/Mesopotamia)","Neolithic, Early (Arabia)","Neolithic, Middle (Arabia)","Neolithic, Late (Arabia)","Neolithic, Early/Aceramic/Pre-pottery (Central Zagros, Iran)","Neolithic, Late/Ceramic (Central Zagros/Khuzestan, Iran)","Neolithic, Early/Aceramic/Pre-pottery (Khuzestan, Iran)","Neolithic, Early/Aceramic/Pre-pottery (Southern Zagros, Iran)","Neolithic, Late/Ceramic (Southern Zagros, Iran)","Neolithic, Early/Aceramic/Pre-pottery (Northeast Iran)","Neolithic, Late/Ceramic (Northern Iran)","Neolithic, Late/Ceramic (Southeast Iran)","Neolithic, Early (Maghreb)","Neolithic, Late (Maghreb)","Neolithic, Late (Mauritania)","Neolithic, Early (Egypt)","Neolithic, Late (Egypt)","Chalcolithic, Early (Levant)","Chalcolithic, Late (Levant)","Chalcolithic, Early/Ubaid (Mesopotamia)","Chalcolithic, Late/Uruk (Mesopotamia)","Chalcolithic, Late 1 (Northern Mesopotamia)","Chalcolithic, Late 2 (Northern Mesopotamia)","Chalcolithic, Late 3 (Northern Mesopotamia)","Chalcolithic, Late 4 (Northern Mesopotamia)","Chalcolithic, Late 5 (Northern Mesopotamia)","Chalcolithic, Early Susiana (Khuzestan, Iran)","Chalcolithic, Middle Susiana (Khuzestan, Iran)","Chalcolithic, Late Susiana (Khuzestan, Iran)","Chalcolithic, Susa I (Khuzestan, Iran)","Chalcolithic, Susa II/Uruk (Khuzestan, Iran)","Chalcolithic, Early (Central Zagros, Iran)","Chalcolithic, Middle (Central Zagros, Iran)","Chalcolithic, Late (Central Zagros, Iran)","Chalcolithic, Transitional (Northern Iran)","Chalcolithic, Early (Northern Iran)","Chalcolithic, Middle (Northern Iran)","Chalcolithic, Late (Northern Iran)","Chalcolithic, Early-Middle Bakun/Yahya VI-VB (Southern Iran)","Chalcolithic, Late Bakun/Yahya VA (Southern Iran)","Chalcolithic, Lapui/Yahya VA (Southern Iran)","Chalcolithic, Early Banesh/Yahya IVC (Southern Iran)","Chalcolithic, Middle Banesh/Yahya IVC (Southern Iran)","Chalcolithic, Early (Arabia)","Chalcolithic, Middle (Arabia)","Chalcolithic, Late (Arabia)","Pre-dynastic, Early (Egypt)","Pre-dynastic, Late (Egypt)","Early Bronze Age (Southern Levant)","Early Bronze Age 1 (Southern Levant)","Early Bronze Age 2 (Southern Levant)","Early Bronze Age 3 (Southern Levant)","Early Bronze Age 4 (Southern Levant)","Early Bronze Age (Northern Levant)","Early Bronze Age, 1-3 (Northern Levant)","Early Bronze Age, 4 (Northern Levant)","Middle Bronze Age (Levant)","Middle Bronze Age 1 (Levant)","Middle Bronze Age 2 (Levant)","Late Bronze Age (Levant)","Late Bronze Age 1 (Levant)","Late Bronze Age 2 (Levant)","Early Bronze Age (Northern Mesopotamia)","Early Bronze Age, Early (Northern Mesopotamia)","Early Bronze Age, Late (Northern Mesopotamia)","Middle Bronze Age/Old Assyrian (Northern Mesopotamia)","Middle Bronze Age 1 (Northern Mesopotamia)","Middle Bronze Age 2 (Northern Mesopotamia)","Late Bronze Age (Northern Mesopotamia)","Late Bronze Age 1/Mittani (Northern Mesopotamia)","Late Bronze Age 2/Middle Assyrian (Northern Mesopotamia)","Bronze Age, Jemdat Nasr (Southern Mesopotamia)","Bronze Age, Early Dynastic (Southern Mesopotamia)","Bronze Age, Early Dynastic I (Southern Mesopotamia)","Bronze Age, Early Dynastic II (Southern Mesopotamia)","Bronze Age, Early Dynastic III (Southern Mesopotamia)","Bronze Age, Akkadian (Southern Mesopotamia)","Bronze Age, Ur III Period (Southern Mesopotamia)","Bronze Age, Old Babylonian (Southern Mesopotamia)","Bronze Age, Kassite (Southern Mesopotamia)","Bronze Age, Middle Babylonian (Southern Mesopotamia)","Early Bronze Age (Central Zagros, Iran)","Middle Bronze Age (Central Zagros, Iran)","Late Bronze Age (Central Zagros, Iran)","Bronze Age, Susa III/Proto-Elamite (Khuzestan)","Bronze Age, Susa IV/ Old Elamite I (Khuzestan)","Bronze Age, Susa V/ Old Elamite II (Khuzestan)","Bronze Age, Susa VI/ Old Elamite III (Khuzestan)","Bronze Age, Middle Elamite (Khuzestan)","Early Bronze Age/Early Transcaucasian (Northwest Iran)","Middle Bronze Age I (Northwest Iran)","Middle Bronze Age II (Northwest Iran)","Middle Bronze Age III (Northwest Iran)","Late Bronze Age (Northwest Iran)","Early Bronze Age (Northeast Iran)","Middle Bronze Age (Northeast Iran)","Late Bronze Age (Northeast Iran)","Bronze Age, Late Banesh/Yayha IVB (Southern Iran)","Bronze Age, Kaftari/Yahya IVA (Southern Iran)","Bronze Age, Qaleh/Shogha-Teimuran (Southwest Iran)","Early Bronze Age (Arabia)","Late Bronze Age (Arabia)","Early Dynastic (Egypt)","Old Kingdom (Egypt)","First Intermediate (Egypt)","Middle Kingdom (Egypt)","Second Intermediate/New Kingdom (Egypt)","New Kingdom (Egypt)","Third Intermediate (Egypt)","Late Dynastic (Egypt)","Iron Age (Northern Levant)","Iron Age, Early (Northern Levant)","Iron Age, Middle (Northern Levant)","Iron Age, Late (Northern Levant)","Iron Age (Southern Levant)","Iron Age 1 (Southern Levant)","Iron Age 2 (Southern Levant)","Iron Age 3 (Southern Levant)","Iron Age, Middle Assyrian (Mesopotamia)","Iron Age, Late/Neo-Assyrian (Mesopotamia)","Iron Age, Neo-Babylonian (Mesopotamia)","Iron Age, Post-Assyrian/Achaemenid/Persian (Levant/Mesopotamia)","Early Iron Age (North Central Iran)","Iron Age I (Northwest Iran)","Iron Age II (Northwest Iran)","Iron Age III/Late Iron Age (Northern Iran)","Iron Age, Neo-Elamite I (Khuzestan/Southwest Iran)","Iron Age, Neo-Elamite II (Khuzestan/Southwest Iran)","Median (Central Zagros)","Iron Age, Yahya III (Southeast Iran)","Iron Age, Pre-Achaemenid (Southeast Iran)","Achaemenid/Iron Age IV (Iran)","Early Iron Age (Arabia)","Middle Iron Age (Arabia)","Late Iron Age (Arabia)","Proto South Arabian (Southern Arabia)","Iron Age, Early (Maghreb)","Iron Age, Late/Punic, Early (Maghreb)","Post-Achaemenid/Hellenistic/Seleucid (Levant/Mesopotamia/Iran)","Post-Achaemenid/Hellenistic/Seleucid, Early (Levant/Mesopotamia/Iran)","Hellenistic/Seleucid, Late (Levant/Mesopotamia)","Parthian (Levant/Mesopotamia/Iran)","Sasanian (Levant/Mesopotamia/Iran)","Nabataean (Levant/Northern Arabia)","Roman/Byzantine (Levant/Mesopotamia)","Roman Imperial (Levant/Mesopotamia)","Roman Imperial, Early (Levant/Mesopotamia)","Roman Imperial, Late (Levant/Mesopotamia)","Byzantine (Levant/Mesopotamia)","Early South Arabian (Southern Arabia)","Middle South Arabian (Southern Arabia)","Late South Arabian (Southern Arabia)","Protohistoric, Early (North Africa)","Protohistoric, Early (Mauritania)","Protohistoric, Middle (North Africa)","Protohistoric, Late (Mauritania)","Protohistoric, Late (North Africa)","Punic, Late (Maghreb)","Roman, Republican (Maghreb)","Classical (Cyrenaica)","Hellenistic/Ptolemaic (Cyrenaica/Egypt)","Roman/Late Antique (North Africa)","Roman Imperial (North Africa)","Roman Imperial, Early (North Africa)","Roman Imperial, Late (North Africa)","Vandal (Maghreb)","Byzantine (Maghreb)","Byzantine (Cyrenaica/Egypt)","Islamic, Early (Umayyad/Abbasid/Fatimid)"," (Levant/Arabia)","Islamic, Middle (Fatimid/Ayyubid) (Levant/Arabia)","Islamic, Late (Mamluk/Rasulid) (Levant/Arabia)","Islamic, Late (Ottoman) (Levant/Arabia)","Islamic, Early (Early Caliphate/Umayyad) (Iraq)","Islamic, Middle (Abbasid) (Iraq)","Islamic, Late (Post-Abbasid) (Iraq)","Islamic, Late (Ottoman) (Iraq)","Islamic, Early (Ummayad/Abbasid) (Iran)","Islamic, Early (Tahirid/Saffarid/Samanid/Buyids) (Iran)","Islamic, Middle (Ghaznavid/Seljuq/Khwarazmshah) (Iran)","Islamic, Middle (Mongol/Ilkhanid/Muzaffarid/Jalayrid) (Iran)","Islamic, Late (Timurid/Safavid/Qajar) (Iran)","Islamic, Early (Umayyad/Abbasid) (North Africa)","Islamic, Middle (Fatimid/Zirid/Hammadid/Almoravid/Almohad) (North Africa)","Islamic, Late (Ayyubid/Hafsid/Marinid/Zayyanid/Mamluk) (North Africa)","Islamic, Late (Ottoman/Saadi/Wattasid/Alaouite/Colonial) (North Africa)","Contemporary Islamic, Early 20th century (MENA)","First World War (MENA)","Second World War (MENA)","Contemporary Islamic, Modern (MENA)",""]
+            self.delegateHP7 = ComboBoxDelegate()
+            self.delegateHP7.def_values(valuesHP7)
+            self.delegateHP7.def_editable('True')
+            self.tableWidget_cultural_sub_period_cert.setItemDelegateForColumn(0,self.delegateHP7)
+            
+            
+            valuesHP8 = ["Not Applicable", "Negligible", "Low", "Medium", "High", "Definite",""]
+            self.delegateHP8 = ComboBoxDelegate()
+            self.delegateHP8.def_values(valuesHP8)
+            self.delegateHP8.def_editable('True')
+            self.tableWidget_site_interpretation_cert.setItemDelegateForColumn(0,self.delegateHP8)
+            
+            valuesHP9 = ["Negligible", "Low", "Medium", "High", "Definite",""]
+            self.delegateHP9 = ComboBoxDelegate()
+            self.delegateHP9.def_values(valuesHP9)
+            self.delegateHP9.def_editable('True')
+            self.tableWidget_overall_arch_cert.setItemDelegateForColumn(0,self.delegateHP9)
+            
+            valuesHP10 = ["Possible", "Probable", "Definite","Not Applicable",""]
+            self.delegateHP10 = ComboBoxDelegate()
+            self.delegateHP10.def_values(valuesHP10)
+            self.delegateHP10.def_editable('True')
+            self.tableWidget_cultural_period_cert.setItemDelegateForColumn(0,self.delegateHP10)
+            
+            valuesHP11 = ["Not Applicable", "Negligible", "Low", "Medium", "High", "Definite",""]
+            self.delegateHP11 = ComboBoxDelegate()
+            self.delegateHP11.def_values(valuesHP11)
+            self.delegateHP11.def_editable('True')
+            self.tableWidget_site_feature_from_type_cert.setItemDelegateForColumn(0,self.delegateHP11)
+            
+            valuesFT2 = ["1","2 to 5","6 to 10","11 to 20","21 to 50","51 to 100","100 to 500","500+","Unknown",""]
+            self.delegateFT2 = ComboBoxDelegate()
+            self.delegateFT2.def_values(valuesFT2)
+            self.delegateFT2.def_editable('True')
+            self.tableWidget_site_feature_interpretation_number.setItemDelegateForColumn(0,self.delegateFT2)
+            
+            valuesFT5 = ["Aircraft","Altar","Amphitheatre","Anchor","Anchorage","AnimalPen","Aqueduct","Ballast","Barrack","Barrage/Dam","Basilica(Roman","Basin/Tank","Bath-house","Battlefield","Boundary/Barrier","Bridge","Building","Building/Enclosure","Bunker","BurntArea","Camp(temporary","Canal","Caravanserai/Khan","Cemetery","Channel","Church/Chapel","Circus/Hippodrome","Cistern","ClearancePile","ColonnadedStreet","Column/Obelisk","CrossbarArrangement(Gate)","Dolmen","Education/AthleticsBuilding","Emplacement/Foxhole","Enclosure","Farm","FarmBuilding","FieldSystem","FishPond","FishTrap/Weir","Flooring/Mosaic/Paving","Fort/Fortress/Castle","Fountain","FuneraryComplex","Gateway/Arch/Intersection","GatheringArea","Government/AdministrativeBuilding","Grove/Garden/Orchard","Hearth/Oven","Hostelry","House/Dwelling","HuntingHide/Trap","Inscription/RockArt/Relief","Kiln/Forge/Furnace","Kite","LandingPlace","LargeCircle","Latrine/Toilet","Lighthouse","ManagedSite","Market/CommercialUnit","MegalithicFeature","Midden/WasteDeposit","Mill(water)","Mill(wind)","Mill/Quern/GrindstoneElement","Minaret","Mine/Quarry/Extraction","MonasticComplex","Mosque/Imam/Marabout","Mosque/MadrasaComplex","Palace/HighStatusComplex","Pendant","Pier/Jetty/Breakwater/Mole","Pontoon/Mooring","Port/Harbour","Portico/Stoa","Press/PressElement","Production/Processing(Agricultural)","Production/Processing(Animal/'Killsite')","Production/Processing(Glass)","Production/Processing(KnappingFloor/Stonerocessing)","Production/Processing(Metal)","Production/Processing(Pottery)","Production/Processing(Salt)","Production/Processing(Unclassified)","Qanat/Foggara","Quay/Wharf","Railway","RailwayStationStop","Ramparts/Fortification/DefensiveEarthwork","Reservoir/Birka","RingedTomb","Road/Track","Sarcophagus/Coffin","School/University","Sculpture/Statue","Settlement/HabitationSite","Ship/Wreck","Canoe","CargoVessel","Dhow","Galley","Logboat","SailingVessel","Steamship","Submarine","Warship","Shipyard/BoatConstruction","SignificantBuilding","Slipway","StandingStone","StorageFacility","Sub-surfaceMaterial","Synagogue","Tell","Temple/Sanctuary/Shrine","TentBase/Footing","Theatre/Odeon","ThreshingFloor","Tomb/Grave/Burial","WadiWall","Watchtower/ObservationPost","WaterControlMechanism/Feature","Waterwheel","Waymarker","Well","Wheel/Jellyfish","Unknown",""]
+            self.delegateFT5 = ComboBoxDelegate()
+            self.delegateFT5.def_values(valuesFT5)
+            self.delegateFT5.def_editable('True')
+            self.tableWidget_site_feature_interpretation_type.setItemDelegateForColumn(0,self.delegateFT5)
+            
+            valuesFT2 = ["1","2 to 5","6 to 10","11 to 20","21 to 50","51 to 100","100 to 500","500+","Unknown",""]
+            self.delegateFT2 = ComboBoxDelegate()
+            self.delegateFT2.def_values(valuesFT2)
+            self.delegateFT2.def_editable('True')
+            self.tableWidget_site_feature_number_type.setItemDelegateForColumn(0,self.delegateFT2)
+            
+            valuesFT1 = ["Adjoining","Concentric","Clustered","Converging","Dispersed","Discrete","Isolated","Linear","Multiple","Nucleated","Parallel","Perpendicular","Overlapping","Rectilinear","Unknown",""]
+            self.delegateFT1 = ComboBoxDelegate()
+            self.delegateFT1.def_values(valuesFT1)
+            self.delegateFT1.def_editable('True')
+            self.tableWidget_site_feature_arrangement_type.setItemDelegateForColumn(0,self.delegateFT1)
+            
+            valuesMT1 = ["Negative/Cut/Dug Feature","Positive/Built Feature","Surface Feature","Unknown",""]
+            self.delegateMT1 = ComboBoxDelegate()
+            self.delegateMT1.def_values(valuesMT1)
+            self.delegateMT1.def_editable('True')
+            self.tableWidget_overall_site_morph.setItemDelegateForColumn(0,self.delegateMT1)
             
             
             
@@ -496,21 +557,13 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
             self.delegateFT1.def_values(valuesFT1)
             self.delegateFT1.def_editable('True')
             self.tableWidget_farrangement.setItemDelegateForColumn(0,self.delegateFT1)
-            valuesFT2 = ["1","2 to 5","6 to 10","11 to 20","21 to 50","51 to 100","100 to 500","500+","Unknown",""]
-            self.delegateFT2 = ComboBoxDelegate()
-            self.delegateFT2.def_values(valuesFT2)
-            self.delegateFT2.def_editable('True')
-            self.tableWidget_fnumber.setItemDelegateForColumn(0,self.delegateFT2)
+            
             valuesFT3 = [""]
             self.delegateFT3 = ComboBoxDelegate()
             self.delegateFT3.def_values(valuesFT3)
             self.delegateFT3.def_editable('True')
             self.tableWidget_fassignementinv.setItemDelegateForColumn(0,self.delegateFT3)
-            valuesFT5 = ["Aircraft","Altar","Amphitheatre","Anchor","Anchorage","AnimalPen","Aqueduct","Ballast","Barrack","Barrage/Dam","Basilica(Roman","Basin/Tank","Bath-house","Battlefield","Boundary/Barrier","Bridge","Building","Building/Enclosure","Bunker","BurntArea","Camp(temporary","Canal","Caravanserai/Khan","Cemetery","Channel","Church/Chapel","Circus/Hippodrome","Cistern","ClearancePile","ColonnadedStreet","Column/Obelisk","CrossbarArrangement(Gate)","Dolmen","Education/AthleticsBuilding","Emplacement/Foxhole","Enclosure","Farm","FarmBuilding","FieldSystem","FishPond","FishTrap/Weir","Flooring/Mosaic/Paving","Fort/Fortress/Castle","Fountain","FuneraryComplex","Gateway/Arch/Intersection","GatheringArea","Government/AdministrativeBuilding","Grove/Garden/Orchard","Hearth/Oven","Hostelry","House/Dwelling","HuntingHide/Trap","Inscription/RockArt/Relief","Kiln/Forge/Furnace","Kite","LandingPlace","LargeCircle","Latrine/Toilet","Lighthouse","ManagedSite","Market/CommercialUnit","MegalithicFeature","Midden/WasteDeposit","Mill(water)","Mill(wind)","Mill/Quern/GrindstoneElement","Minaret","Mine/Quarry/Extraction","MonasticComplex","Mosque/Imam/Marabout","Mosque/MadrasaComplex","Palace/HighStatusComplex","Pendant","Pier/Jetty/Breakwater/Mole","Pontoon/Mooring","Port/Harbour","Portico/Stoa","Press/PressElement","Production/Processing(Agricultural)","Production/Processing(Animal/'Killsite')","Production/Processing(Glass)","Production/Processing(KnappingFloor/Stonerocessing)","Production/Processing(Metal)","Production/Processing(Pottery)","Production/Processing(Salt)","Production/Processing(Unclassified)","Qanat/Foggara","Quay/Wharf","Railway","RailwayStationStop","Ramparts/Fortification/DefensiveEarthwork","Reservoir/Birka","RingedTomb","Road/Track","Sarcophagus/Coffin","School/University","Sculpture/Statue","Settlement/HabitationSite","Ship/Wreck","Canoe","CargoVessel","Dhow","Galley","Logboat","SailingVessel","Steamship","Submarine","Warship","Shipyard/BoatConstruction","SignificantBuilding","Slipway","StandingStone","StorageFacility","Sub-surfaceMaterial","Synagogue","Tell","Temple/Sanctuary/Shrine","TentBase/Footing","Theatre/Odeon","ThreshingFloor","Tomb/Grave/Burial","WadiWall","Watchtower/ObservationPost","WaterControlMechanism/Feature","Waterwheel","Waymarker","Well","Wheel/Jellyfish","Unknown",""]
-            self.delegateFT5 = ComboBoxDelegate()
-            self.delegateFT5.def_values(valuesFT5)
-            self.delegateFT5.def_editable('True')
-            self.tableWidget_interpretationtype.setItemDelegateForColumn(0,self.delegateFT5)
+            
             valuesFT4 = ["Not Applicable","Negligible","Low","Medium","High","Definite",""]
             self.delegateFT4 = ComboBoxDelegate()
             self.delegateFT4.def_values(valuesFT4)
@@ -537,14 +590,28 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
         self.comboBox_name_site.clear()
         sito_vl.sort()
         self.comboBox_name_site.addItems(sito_vl)
+        
+        
         location_vl = self.UTILITY.tup_2_list_III(self.DB_MANAGER.group_by('site_table', 'location_', 'SITE'))
         try:
             location_vl.remove('')
         except :
             pass
         self.comboBox_location.clear()
+        
         location_vl.sort()
         self.comboBox_location.addItems(location_vl)
+        
+        adress_vl = self.UTILITY.tup_2_list_III(self.DB_MANAGER.group_by('site_table', 'location_', 'SITE'))
+        try:
+            adress_vl.remove('')
+        except :
+            pass
+        self.comboBox_Address.clear()
+        adress_vl.sort()
+        self.comboBox_Address.addItems(adress_vl)
+        
+        
         # #lista years reference
         grid = ['E35N33-11','E35N33-12','E35N33-13','E35N33-14','E35N33-21','E35N33-23','E35N33-24','E35N33-31','E35N33-32','E35N33-33','E35N33-34','E35N33-41','E35N33-42','E35N33-43','E35N33-44','E35N34-11','E35N34-12','E35N34-13','E35N34-14','E35N34-21','E35N34-22','E35N34-23','E35N34-24','E35N34-31','E35N34-32','E35N34-41','E35N34-42','E36N33-31','E36N33-33','E36N33-34','E36N34-11','E36N34-12','E36N34-13','E36N34-14','E36N34-21','E36N34-23','E36N34-31','E36N34-32']
         self.comboBox_grid.clear()
