@@ -446,6 +446,7 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
                 self.iface.messageBar().pushMessage(self.tr(msg), Qgis.Warning, 0)
     def customize_GUI(self):
         self.tableWidget_role.setSortingEnabled(False)
+        
         try:
           
             valuesMater = ["Academic Researcher","EAMENA Project Staff","Government Authority/Staff","MarEA Project Staff","Non-Governmental Organisation (NGO)","Private sector","Student/Trainee","Volunteer/Independent Researcher",""]
