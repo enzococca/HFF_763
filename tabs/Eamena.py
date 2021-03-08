@@ -331,58 +331,24 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
         geometry_list_1 = []
         for a in range(len(geometry_vl_1)):
             geometry_list_1.append(str(geometry_vl_1[a].coord))
-            # geometry_list.append(str(geometry_vl[a].coord))
+            
+        search_dict2 = {
+            'location': "'" + str(self.comboBox_location.currentText()) + "'",
+            'name_f_p': "'" + str(self.comboBox_name_site.currentText()) + "'"
+        }
+    
+        geometry_vl_2 = self.DB_MANAGER.query_bool(search_dict2,'SITE_POINT')
+        geometry_list_2 = []
+        for b in range(len(geometry_vl_2)):
+            geometry_list_1.append(str(geometry_vl_2[b].coord))
         
-        a=geometry_list+geometry_list_1
-        # geometry_place= self.tableWidget_geometry_place.rowCount() 
-        # for i in range(geometry_place):
-            # self.tableWidget_geometry_place.removeRow(0)
-        # # # self.comboBox_posizione.addItems(self.UTILITY.remove_dup_from_list(geometry_list))
-        # if self.STATUS_ITEMS[self.BROWSE_STATUS] == "Trova" or "Finden" or "Find":
-             # self.tableWidget_geometry_place.removeRow(0)
-        # elif self.STATUS_ITEMS[self.BROWSE_STATUS] == "Usa" or "Aktuell " or "Current":		
-            # if len(self.DATA_LIST) > 0:
-                # try:
+        a=geometry_list+geometry_list_1+geometry_list_2
+       
         self.delegateMater = ComboBoxDelegate()
         self.delegateMater.def_values(a)
         self.delegateMater.def_editable('True')
-        
-        # self.delegateMater1 = ComboBoxDelegate()
-        # self.delegateMater1.def_values(geometry_list_1)
-        # self.delegateMater1.def_editable('True')
-        
+       
         self.tableWidget_geometry_place.setItemDelegateForColumn(0,self.delegateMater)
-        #if self.comboBox_location.currentIndexChanged:
-            
-        #self.tableWidget_geometry_place.setItemDelegateForColumn(0,self.delegateMater1)            
-                # except Exception as e 
-                   # print(str(e))
-    
-    # def geometry_exp2(self):
-        # #self.tableWidget_geometry_place.update()
-        # sito = str(self.comboBox_location.currentText())
-        # area = str(self.comboBox_name_site.currentText())
-        
-        # try:  
-            # search_dict = {
-                # 'location': "'" + sito + "'",
-                # 'name_f_l': "'" + area + "'"
-            # }
-        
-        
-            # geometry_vl = self.DB_MANAGER.query_bool(search_dict,'SITE_LINE')
-            # geometry_list = []
-            
-            # for i in range(len(geometry_vl)):
-                # geometry_list.append(str(geometry_vl[i].coord))
-            # # self.tableWidget_geometry_place.clear()
-            # # self.tableWidget_geometry_place.update()
-            # self.delegateMater = ComboBoxDelegate()
-            # self.delegateMater.def_values(geometry_list)
-            # self.delegateMater.def_editable('True')
-            # self.tableWidget_geometry_place.setItemDelegateForColumn(0,self.delegateMater)    
-        # except Exception as e:
-            # QMessageBox.information(self, "Record",  str(e))
         
     def enable_button(self, n):
         """This method Unable or Enable the GUI buttons on browse modality"""

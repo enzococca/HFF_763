@@ -28,6 +28,7 @@ from .entities.MEDIAVIEW import MEDIAVIEW
 from .entities.PDF_ADMINISTRATOR import PDF_ADMINISTRATOR
 from .entities.SITE_POLYGON import SITE_POLYGON
 from .entities.SITE_LINE import SITE_LINE
+from .entities.SITE_POINT import SITE_POINT
 from .entities.SITE import SITE
 from .entities.UW import UW
 from .entities.ART import ART
@@ -44,6 +45,7 @@ from .structures.Media_to_Entity_table_view import Media_to_Entity_table_view
 from .structures.PDF_administrator_table import PDF_administrator_table
 from .structures.Site_polygon_table import Site_polygon_table
 from .structures.Site_line_table import Site_line_table
+from .structures.Site_point_table import Site_point_table
 from .structures.Site_table import Site_table
 from .structures.UW_table import UW_table
 from .structures.ART_table import ART_table
@@ -74,6 +76,9 @@ try:
     
     # mapper
     mapper(SITE_LINE, Site_line_table.siteline)
+    
+    # mapper
+    mapper(SITE_POINT, Site_point_table.sitepoint)
     
     # mapper
     mapper(SITE, Site_table.site_table)

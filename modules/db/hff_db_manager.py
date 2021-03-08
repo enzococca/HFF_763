@@ -38,7 +38,7 @@ from geoalchemy2 import *
 from .hff_db_mapper import UW, ART, ANC, POTTERY, SITE, EAMENA, SHIPWRECK, \
     MEDIA, \
     MEDIA_THUMB, MEDIATOENTITY, MEDIAVIEW, \
-    PDF_ADMINISTRATOR, SITE_POLYGON, SITE_LINE
+    PDF_ADMINISTRATOR, SITE_POLYGON, SITE_LINE, SITE_POINT
 from .hff_system__db_update import DB_update
 from .hff_system__utility import Utility
 
@@ -131,6 +131,26 @@ class Hff_db_management(object):
                     )
 
         return siteline
+    
+    def insert_sitepoint_values(self, *arg):
+        """Istanzia la classe US da hff_system__db_mapper"""
+
+        sitepoint = SITE_POINT(arg[0],
+                    arg[1],
+                    arg[2],
+                    arg[3],
+                    arg[4],
+                    arg[5],
+                    arg[6],
+                    arg[7],
+                    arg[8],
+                    arg[9],
+                    arg[10],
+                    arg[11],
+                    )
+
+        return sitepoint
+    
     def insert_shipwreck_values(self, *arg):
         """Istanzia la classe US da hff_system__db_mapper"""
 
