@@ -414,7 +414,7 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
         self.tableWidget_role.setSortingEnabled(False)
         
         try:
-          
+            ########ASSESSMENT SUMMURY##################
             valuesMater = ["Academic Researcher","EAMENA Project Staff","Government Authority/Staff","MarEA Project Staff","Non-Governmental Organisation (NGO)","Private sector","Student/Trainee","Volunteer/Independent Researcher",""]
             self.delegateMater = ComboBoxDelegate()
             self.delegateMater.def_values(valuesMater)
@@ -427,12 +427,50 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
             self.delegateMater2.def_editable('True')
             self.tableWidget_activity.setItemDelegateForColumn(0,self.delegateMater2)
             
+            ############RESOURCE SUMMARY###############################
+            valuesHP = ["Archaeological Site","Archaeological Feature/Component","Landscape/Seascape","Urban Heritage","Structural Heritage"]
+            self.delegateHP = ComboBoxDelegate()
+            self.delegateHP.def_values(valuesHP)
+            self.delegateHP.def_editable('True')
+            self.tableWidget_hplacetype.setItemDelegateForColumn(0,self.delegateHP)
             
-            valuesMO = [""]
-            self.delegateMO = ComboBoxDelegate()
-            self.delegateMO.def_values(valuesMO)
-            self.delegateMO.def_editable('True')
-            self.tableWidget_name.setItemDelegateForColumn(0,self.delegateMO)
+            valuesHP2 = ["Agricultural/Pastoral","Defensive/Fortification","Domestic","Entertainment/Leisure","Funerary/Memorial","Hunting/Fishing","Hydrological","Industrial/Productive","Infrastructure/Transport","Maritime","Military","Public /Institutional","Religious","Status/Display/Monumental","Trade/Commercial","Unknown"]
+            self.delegateHP2 = ComboBoxDelegate()
+            self.delegateHP2.def_values(valuesHP2)
+            self.delegateHP2.def_editable('True')
+            self.tableWidget_hplacefuntion.setItemDelegateForColumn(0,self.delegateHP2)
+            
+            valuesHP3 = ["Not Applicable", "Negligible", "Low", "Medium", "High", "Definite"]
+            self.delegateHP3 = ComboBoxDelegate()
+            self.delegateHP3.def_values(valuesHP3)
+            self.delegateHP3.def_editable('True')
+            self.tableWidget_hplacefunctioncertainty.setItemDelegateForColumn(0,self.delegateHP3)
+            ##########################GEOMETRIES###############################################################
+            
+            valuesHP4 = ["Not Applicable", "Negligible", "Low", "Medium", "High", "Definite"]
+            self.delegateHP4 = ComboBoxDelegate()
+            self.delegateHP4.def_values(valuesHP4)
+            self.delegateHP4.def_editable('True')
+            self.tableWidget_geometry_extent.setItemDelegateForColumn(0,self.delegateHP4)
+            
+            valuesHP5 = ["Not Applicable", "Negligible", "Low", "Medium", "High", "Definite"]
+            self.delegateHP5 = ComboBoxDelegate()
+            self.delegateHP5.def_values(valuesHP5)
+            self.delegateHP5.def_editable('True')
+            self.tableWidget_site_location_certainty.setItemDelegateForColumn(0,self.delegateHP5)
+            
+            valuesHP6 = ["Algeria","Bahrain","Djibouti","Egypt","Eritrea","Ethiopia","Iran (Islamic Republic of)","Iraq","Israel","Jordan","Kuwait","Lebanon","Libya","Mauretania","Morocco","Oman","Palestine, State of","Qatar","Saudi Arabia","Sudan","Syrian Arab Republic","Tunisia","Turkey","United Arab Emirates","Western Sahara","Yemen","Other"]
+            self.delegateHP6 = ComboBoxDelegate()
+            self.delegateHP6.def_values(valuesHP6)
+            self.delegateHP6.def_editable('True')
+            self.tableWidget_country_type.setItemDelegateForColumn(0,self.delegateHP6)
+            
+            
+            
+            
+            
+            
+            
             valuesCO = ["Alternative Reference","Toponym","Designation",""]
             self.delegateCO = ComboBoxDelegate()
             self.delegateCO.def_values(valuesCO)

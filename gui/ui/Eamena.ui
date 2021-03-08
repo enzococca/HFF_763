@@ -1513,6 +1513,26 @@
                <property name="editable">
                 <bool>true</bool>
                </property>
+               <item>
+                <property name="text">
+                 <string/>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Alternative Reference</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Designation</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Toponym</string>
+                </property>
+               </item>
               </widget>
              </item>
              <item row="2" column="0">
@@ -1555,7 +1575,7 @@
                </property>
                <item>
                 <property name="text">
-                 <string>x</string>
+                 <string/>
                 </property>
                </item>
                <item>
@@ -1625,6 +1645,41 @@
                <property name="editable">
                 <bool>true</bool>
                </property>
+               <item>
+                <property name="text">
+                 <string/>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Comments</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>General Description</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Summary of Significance </string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Architectural Description</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Primary</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Old ArchesID</string>
+                </property>
+               </item>
               </widget>
              </item>
              <item row="0" column="1" colspan="2">
@@ -1694,7 +1749,7 @@
                 <bool>false</bool>
                </attribute>
                <attribute name="horizontalHeaderDefaultSectionSize">
-                <number>300</number>
+                <number>250</number>
                </attribute>
                <attribute name="horizontalHeaderStretchLastSection">
                 <bool>false</bool>
@@ -1748,7 +1803,7 @@
                 <number>0</number>
                </property>
                <attribute name="horizontalHeaderDefaultSectionSize">
-                <number>200</number>
+                <number>194</number>
                </attribute>
                <attribute name="verticalHeaderDefaultSectionSize">
                 <number>37</number>
@@ -1784,7 +1839,7 @@
                 <enum>QAbstractItemView::SingleSelection</enum>
                </property>
                <attribute name="horizontalHeaderDefaultSectionSize">
-                <number>300</number>
+                <number>250</number>
                </attribute>
                <attribute name="verticalHeaderDefaultSectionSize">
                 <number>37</number>
@@ -1871,6 +1926,76 @@
                <property name="editable">
                 <bool>true</bool>
                </property>
+               <item>
+                <property name="text">
+                 <string/>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>North</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>South</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>East</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>West</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>North-East</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>North-West</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>South-East</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>South-West</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>North-South</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>East-West</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Northeast-Southwest</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Northwest-Southeast</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Not Applicable</string>
+                </property>
+               </item>
               </widget>
              </item>
              <item row="7" column="2">
@@ -1897,6 +2022,21 @@
                <property name="editable">
                 <bool>true</bool>
                </property>
+               <item>
+                <property name="text">
+                 <string/>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Alternative</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Primary</string>
+                </property>
+               </item>
               </widget>
              </item>
              <item row="3" column="2">
@@ -2001,6 +2141,61 @@
                <property name="editable">
                 <bool>true</bool>
                </property>
+               <item>
+                <property name="text">
+                 <string/>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Access Point</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Buffer Polygon</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Center Line</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Center Point</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Façade Point</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Perimeter Polygon</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Property Boundary</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Site Datum Point</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Simplified Polygon</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Vicinity Point</string>
+                </property>
+               </item>
               </widget>
              </item>
              <item row="6" column="4">
@@ -2040,6 +2235,91 @@
                <property name="editable">
                 <bool>true</bool>
                </property>
+               <item>
+                <property name="text">
+                 <string/>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Circular</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Curvilinear</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Irregular</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Point</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Polygonal</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Rectangular/Square</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Rectilinear</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Semi-circular</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Straight</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Sub-circular</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Sub-rectangular</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Triangular</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>User Defined</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Winding</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Zigzag</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Unknown</string>
+                </property>
+               </item>
               </widget>
              </item>
              <item row="6" column="2">
@@ -2146,6 +2426,46 @@
                <property name="editable">
                 <bool>true</bool>
                </property>
+               <item>
+                <property name="text">
+                 <string/>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Community Plan Area</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Council District</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>District</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Governorate</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Neighborhood</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Neighborhood Council</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>Province</string>
+                </property>
+               </item>
               </widget>
              </item>
              <item row="1" column="1">
