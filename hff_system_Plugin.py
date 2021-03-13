@@ -33,7 +33,7 @@ from qgis.core import QgsApplication, QgsSettings
 
 from hff_system_DockWidget import HffPluginDialog
 from .tabs.Eamena import Eamena
-from .tabs.Eamena_archaeology import Eamena_archaeology
+
 from .tabs.hff_system__Shipwreck import hff_system__Shipwreck
 from .tabs.hff_system__ANC_mainapp import hff_system__ANC
 from .tabs.hff_system__ART_mainapp import hff_system__ART
@@ -146,12 +146,10 @@ class HffPlugin_s(object):
         self.actionEamena.triggered.connect(self.runEamena)
         
         icon_eamena_archaeology = '{}{}'.format(filepath, os.path.join(os.sep, 'resources', 'icons', 'eamena.jpg'))
-        self.actionEamena_arc = QAction(QIcon(icon_eamena_archaeology), "Eamena Archaeology", self.iface.mainWindow())
-        self.actionEamena_arc.setWhatsThis("Eamena Archaeology")
-        self.actionEamena_arc.triggered.connect(self.runEamena_arc)
+        
 
         self.siteToolButton.addActions(
-            [self.actionSite, self.actionEamena,self.actionEamena_arc ])
+            [self.actionSite, self.actionEamena])
         self.siteToolButton.setDefaultAction(self.actionSite)
 
         self.toolBar.addWidget(self.siteToolButton)
@@ -287,7 +285,7 @@ class HffPlugin_s(object):
         
         self.iface.addPluginToMenu("HFF - Survey Terrestrial Archaeological GIS Tools", self.actionSite)
         self.iface.addPluginToMenu("HFF - Survey Terrestrial Archaeological GIS Tools", self.actionEamena)
-        self.iface.addPluginToMenu("HFF - Survey Terrestrial Archaeological GIS Tools", self.actionEamena_arc)
+        
         self.iface.addPluginToMenu("HFF - Media manager GIS Tools", self.actionimageViewer)
         self.iface.addPluginToMenu("HFF - Media manager GIS Tools", self.actionexcelExp)
         self.iface.addPluginToMenu("HFF - Media manager GIS Tools", self.actionImages_Directory_export)
@@ -301,7 +299,7 @@ class HffPlugin_s(object):
         # MENU
         self.menu = QMenu("HFF")
         self.menu.addActions([self.actionSite, self.actionEamena])
-        self.menu.addActions([self.actionSite, self.actionEamena_arc])
+        
         self.menu.addSeparator()
         self.menu.addActions([self.actionShipwreck])
         self.menu.addSeparator()
@@ -327,10 +325,7 @@ class HffPlugin_s(object):
         pluginGui.show()
         self.pluginGui = pluginGui  # save    
     
-    def runEamena_arc(self):
-        pluginGui = Eamena_archaeology(self.iface)
-        pluginGui.show()
-        self.pluginGui = pluginGui  # save 
+    
     
     def runUW(self):
         pluginGui = hff_system__UW(self.iface)
@@ -409,7 +404,7 @@ class HffPlugin_s(object):
         
         self.iface.removePluginMenu("HFF - Survey Terrestrial Archaeological GIS Tools", self.actionSite)
         self.iface.removePluginMenu("HFF - Survey Terrestrial Archaeological GIS Tools", self.actionEamena)
-        self.iface.removePluginMenu("HFF - Survey Terrestrial Archaeological GIS Tools", self.actionEamena_arc)
+        
         self.iface.removePluginMenu("HFF - Media manager GIS Tools", self.actionimageViewer)
         self.iface.removePluginMenu("HFF - Media manager GIS Tools", self.actionImages_Directory_export)
         self.iface.removePluginMenu("HFF - Media manager GIS Tools", self.actionexcelExp)

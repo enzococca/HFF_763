@@ -304,10 +304,10 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
         self.model = QStandardItemModel()
         self.customize_GUI()
         if len(self.DATA_LIST)==0:
-            self.comboBox_name_site.setCurrentIndex(0)
+            self.comboBox_location.setCurrentIndex(1)
         else:
-            self.comboBox_name_site.setCurrentIndex(1)
-        self.comboBox_name_site.currentIndexChanged.connect(self.geometry_exp)
+            self.comboBox_location.setCurrentIndex(0)
+        self.comboBox_location.currentIndexChanged.connect(self.geometry_exp)
     def geometry_exp(self):
         
         self.tableWidget_geometry_place.update()
@@ -526,61 +526,158 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
             self.delegateMT1.def_editable('True')
             self.tableWidget_overall_site_morph.setItemDelegateForColumn(0,self.delegateMT1)
             
-            
-            
-            
-            
-            
-            
-            valuesCO = ["Alternative Reference","Toponym","Designation",""]
-            self.delegateCO = ComboBoxDelegate()
-            self.delegateCO.def_values(valuesCO)
-            self.delegateCO.def_editable('True')
-            self.tableWidget_nametype.setItemDelegateForColumn(0,self.delegateCO)
             valuesRS = ["Bank/Earthwork","Bank/Wall","Cave","Cleared Area","Colour/Texture Difference","Craft/Vessel/Vehicle","Depression/Hollow","Ditch/Trench","Large Mound","Modified Rock Surface","Multi-Component","Object","Paved/Laid Surface","Pit/Shaft/Tunnel","Plant/Tree","Platform/Terrace","Pyramid/Ziggurat","Rubble Spread/Architectural Fragments","Scatter","Small Mound/Cairn","Structure","Tower","Unknown","Upright Stone","Wall","Waterfront",""]
             self.delegateRS = ComboBoxDelegate()
             self.delegateRS.def_values(valuesRS)
             self.delegateRS.def_editable('True')
-            self.tableWidget_fform.setItemDelegateForColumn(0,self.delegateRS)
+            self.tableWidget_site_features_from_type.setItemDelegateForColumn(0,self.delegateRS)
+            
             valuesDoc = ["Not Applicable","Negligible","Low","Medium","High","Definite",""]
             self.delegateDoc = ComboBoxDelegate()
             self.delegateDoc.def_values(valuesDoc)
             self.delegateDoc.def_editable('True')
-            self.tableWidget_fcertainty.setItemDelegateForColumn(0,self.delegateDoc)
-            valuesFT = ["Circular"," Curvilinear"," Irregular"," Multiple"," Polygonal"," Rectangular/Square"," Rectilinear"," Semi-circular"," Straight"," Sub-circular"," Sub-rectangular"," Triangular"," Winding","Zigzag","Unknown",""]
+            self.tableWidget_sub_period_cert.setItemDelegateForColumn(0,self.delegateDoc)
+            
+            valuesFT = ["Circular","Curvilinear","Irregular","Multiple","Polygonal"," Rectangular/Square"," Rectilinear","Semi-circular","Straight","Sub-circular"," Sub-rectangular","Triangular","Winding","Zigzag","Unknown",""]
             self.delegateFT = ComboBoxDelegate()
             self.delegateFT.def_values(valuesFT)
             self.delegateFT.def_editable('True')
-            self.tableWidget_fshape.setItemDelegateForColumn(0,self.delegateFT)
-            valuesFT1 = ["Adjoining","Concentric","Clustered","Converging","Dispersed","Discrete","Isolated","Linear","Multiple","Nucleated","Parallel","Perpendicular","Overlapping","Rectilinear","Unknown",""]
+            self.tableWidget_site_feature_shape_type.setItemDelegateForColumn(0,self.delegateFT)
+            
+            valuesFT1 = ["Area","Breadth/Width","Depth","Diameter","Height","Length","Unknown",""]
             self.delegateFT1 = ComboBoxDelegate()
             self.delegateFT1.def_values(valuesFT1)
             self.delegateFT1.def_editable('True')
-            self.tableWidget_farrangement.setItemDelegateForColumn(0,self.delegateFT1)
+            self.tableWidget_dimension_type.setItemDelegateForColumn(0,self.delegateFT1)
             
-            valuesFT3 = [""]
+            valuesFT3 = ["Aerial Photograph (Processed)","Aerial Photograph (Unprocessed)","Satellite Imagery (Processed)","Satellite Imagery (Unprocessed)","Satellite Imagery (Virtual Globe/Map)","Differential GPS (DGPS)","Estimated/Paced","Handheld GPS","Laser Rangefinder","Tape Measure/Surveyor's Wheel","Total Station","Theodolite/Dumpy Level","Unknown",""]
             self.delegateFT3 = ComboBoxDelegate()
             self.delegateFT3.def_values(valuesFT3)
             self.delegateFT3.def_editable('True')
-            self.tableWidget_fassignementinv.setItemDelegateForColumn(0,self.delegateFT3)
+            self.tableWidget_measurement_siurce_type.setItemDelegateForColumn(0,self.delegateFT3)
             
-            valuesFT4 = ["Not Applicable","Negligible","Low","Medium","High","Definite",""]
+            valuesFT4 = ["millimetres (mm)","centimetres (cm)","metres (m)","kilometres (km)","hectares (ha)","square metres (m2)","square kilometres (km2)","inches (in)","feet (ft)","yard (yd)","miles (mi)","acres (ac)","square feet (ft2)","square mile (mi2)","dunam",""]
             self.delegateFT4 = ComboBoxDelegate()
             self.delegateFT4.def_values(valuesFT4)
             self.delegateFT4.def_editable('True')
-            self.tableWidget_interpretationcertainty.setItemDelegateForColumn(0,self.delegateFT4)
-            valuesFT6 = [""]
-            self.delegateFT6 = ComboBoxDelegate()
-            self.delegateFT6.def_values(valuesFT6)
-            self.delegateFT6.def_editable('True')
-            self.tableWidget_interpretationumbertype.setItemDelegateForColumn(0,self.delegateFT6)
-            valuesFT7 = ["Agricultural/Pastoral","Defensive/Fortification","Domestic","Educational","Entertainment/Leisure","Funerary/Memorial","Hunting/Fishing","Hydrological","Industrial/Productive","Infrastructure/Transport","Maritime","Military","Public /Institutional","Religious","Status/Display/Monumental","Trade/Commercial","Unknown",""]
-            self.delegateFT7 = ComboBoxDelegate()
-            self.delegateFT7.def_values(valuesFT7)
-            self.delegateFT7.def_editable('True')
-            self.tableWidget_functioninterpretation.setItemDelegateForColumn(0,self.delegateFT7)
-        except:         
-            pass
+            self.tableWidget_measurement_unit.setItemDelegateForColumn(0,self.delegateFT4)
+            
+            material_type = ["","Baked brick","Concrete (Breeze-block)","Concrete (Reinforced)","Concrete (Unspecified)","Corrugated Metal","Glass","Iron / Steel","Metal","Mud / Adobe (Blocks/Bricks)","Mud / Adobe (unshaped)","Stone (Cut)","Stone (Roughly cut)","Terracotta","Tile (Glazed)","Tile (Hollow)","Tile (Unclassified)","Tile (Unglazed)","Cement-based Render","Plaster","Roughcast/Pebbledash","Stucco","Bitumen","Brickearth","Gypsum","Mortar (Concrete)","Mortar (Unspecified)","Rubble stone","Other","Unknown"]
+            self.comboBox_material_type.clear()
+            self.comboBox_material_type.addItems(material_type)
+            
+            construction_type = ["","Beam-supported","Brick-laid Laying","Cob/Wet Applied Mud","Iron/Steel Construction","Masonry (Dry)","Masonry (Mortared)","Masonry (Unclassified)","Mosaic","Paving (Other)","Plastering","Post-supported","Pouring/Precasting","Rammed Earth/Pisé","Roofing (Dome)","Roofing (Flat)","Roofing (Sloping)","Roofing (Vaulted)","Rubble-filled walling","Stucco","Tiling (Roof)","Tiling (Wall/Floor)","Unknown","Waterproofing / rendering","Wattle-and-Daub","Wood Construction"]
+            self.comboBox_contruction_tech.clear()
+            self.comboBox_contruction_tech.addItems(construction_type)
+           
+            valuesMT4 = ["Good","Fair","Poor","Very Bad","Destroyed","Unknow",""]
+            self.delegateMT4 = ComboBoxDelegate()
+            self.delegateMT4.def_values(valuesMT4)
+            self.delegateMT4.def_editable('True')
+            self.tableWidget_overall_condition_state.setItemDelegateForColumn(0,self.delegateMT4)
+            
+            valuesMT5 = ["No Visible/Known","1-10%","11-30%","31-60%","61-90%","91-100%","Unknow",""]
+            self.delegateMT5 = ComboBoxDelegate()
+            self.delegateMT5.def_values(valuesMT5)
+            self.delegateMT5.def_editable('True')
+            self.tableWidget_damage.setItemDelegateForColumn(0,self.delegateMT5)
+           
+            valuesMT6 = ["Animal/Pest Infestation","Aquaculture","Breaking/Smashing","Cable/Pipe Laying","Clearance (Bulldozing/Levelling)","Clearance (Hand)","Clearance (Unclassified)","Coastal Advance/Accretion","Coastal Erosion/Retreat","Conservation","Construction","Demolition/Destruction","Dissolved Salt","Dredging","Drilling","Drought","Dumping","Excavation (Bulldozing/Machinery)","Excavation (Hand)","Excavation (Unclassified)","Explosion/Heavy Weaponry","Fire","Flooding","Grafitti","Grazing/Animal Movement","Gunfire/Light Weaponry","Human Movement/Trampling","Inundation","Irrigation (Unclassified)","Irrigation (Channels)","Irrigation (Centre Pivot System)","Lack of Maintenance/Management/Legal Measures and Activities", "Land/Rock Slide","Landmines","Landscaping","Maintenance/Management Activities","Mining/Quarrying (Unclassified)","Mining/Quarrying (Surface)","Mining/Quarrying (Open Trench/Pit)","Mining/Quarrying (Underground)","Mooring/Anchoring","No Visible/Known","Occupation/Continued Use","Ploughing","Pollution","Precipitation","Railway","Recession of water","Reconstruction","Refurbishment","Restoration","Road/Track","Salvage","Seismic Activity","Stationary Vehicle","Structural Robbing","Temperature/Humidity Change","Theft/Unauthorised Removal of Objects","Trawling","Tunelling","Vegetation/Crops/Trees","Volcanic Eruption","Water Action","Water and/or Wind Action","Wind Action","Unknown",""]
+            self.delegateMT6 = ComboBoxDelegate()
+            self.delegateMT6.def_values(valuesMT6)
+            self.delegateMT6.def_editable('True')
+            self.tableWidget_threat_type.setItemDelegateForColumn(0,self.delegateMT6)
+            
+            valuesMT7 = ["Animal/Pest Infestation","Aquaculture","Breaking/Smashing","Cable/Pipe Laying","Clearance (Bulldozing/Levelling)","Clearance (Hand)","Clearance (Unclassified)","Coastal Advance/Accretion","Coastal Erosion/Retreat","Conservation","Construction","Demolition/Destruction","Dissolved Salt","Dredging","Drilling","Drought","Dumping","Excavation (Bulldozing/Machinery)","Excavation (Hand)","Excavation (Unclassified)","Explosion/Heavy Weaponry","Fire","Flooding","Grafitti","Grazing/Animal Movement","Gunfire/Light Weaponry","Human Movement/Trampling","Inundation","Irrigation (Unclassified)","Irrigation (Channels)","Irrigation (Centre Pivot System)","Lack of Maintenance/Management/Legal Measures and Activities", "Land/Rock Slide","Landmines","Landscaping","Maintenance/Management Activities","Mining/Quarrying (Unclassified)","Mining/Quarrying (Surface)","Mining/Quarrying (Open Trench/Pit)","Mining/Quarrying (Underground)","Mooring/Anchoring","No Visible/Known","Occupation/Continued Use","Ploughing","Pollution","Precipitation","Railway","Recession of water","Reconstruction","Refurbishment","Restoration","Road/Track","Salvage","Seismic Activity","Stationary Vehicle","Structural Robbing","Temperature/Humidity Change","Theft/Unauthorised Removal of Objects","Trawling","Tunelling","Vegetation/Crops/Trees","Volcanic Eruption","Water Action","Water and/or Wind Action","Wind Action","Unknown",""]
+            self.delegateMT7 = ComboBoxDelegate()
+            self.delegateMT7.def_values(valuesMT7)
+            self.delegateMT7.def_editable('True')
+            self.tableWidget_disturbance_cause.setItemDelegateForColumn(0,self.delegateMT7)
+            
+            valuesMT8 = ["Not Applicable", "Negligible", "Low", "Medium", "High", "Definite",""]
+            self.delegateMT8 = ComboBoxDelegate()
+            self.delegateMT8.def_values(valuesMT8)
+            self.delegateMT8.def_editable('True')
+            self.tableWidget_disturbance_cause_2.setItemDelegateForColumn(0,self.delegateMT8)
+            
+            valuesMT9 = ["Not Applicable", "Negligible", "Low", "Medium", "High", "Definite",""]
+            self.delegateMT9 = ComboBoxDelegate()
+            self.delegateMT9.def_values(valuesMT9)
+            self.delegateMT9.def_editable('True')
+            self.tableWidget_effect_certainty.setItemDelegateForColumn(0,self.delegateMT9)
+            
+            valuesMT10 = ["Not Applicable", "Probable", "Possible", "Planned",""]
+            self.delegateMT10 = ComboBoxDelegate()
+            self.delegateMT10.def_values(valuesMT10)
+            self.delegateMT10.def_editable('True')
+            self.tableWidget_threat_probability.setItemDelegateForColumn(0,self.delegateMT10)
+            
+            valuesMT11 = ["Access Restriction","Alteration of Terrain","Artefact Displacement","Burning","Chemical Leaching","Collapse/Structural Damage","Compacting","Covered","Cracked/Broken/Missing Parts","Earth Displacement","Erosion/Deterioration (micro-bio)","Lack of Adehsion","Lack of Cohesion","Loss/Removal of Archaeological Material","Loss of Intangible Heritage Linked to Heritage Resource","Relocation of Archaeological Features","Structural Alteration","Surface Loss","Visual Impact","Water Damage","Not Applicable","Unknown",""]
+            self.delegateMT11 = ComboBoxDelegate()
+            self.delegateMT11.def_values(valuesMT11)
+            self.delegateMT11.def_editable('True')
+            self.tableWidget_effect_type.setItemDelegateForColumn(0,self.delegateMT11)
+            
+            priority_type = ["","Immediate Action (Emergency)","Within 6 months to 1 year (Urgent)","Within 1 to 2 years (High)","Within 2 to 5 years (Medium)","Beyond 5 years (Low)"]
+            self.comboBox_priority.clear()
+            self.comboBox_priority.addItems(priority_type)
+            
+            intervention_type = ["","Emergency Actions","Conservation, Restoration, and Maintenance Activities","Within 1 to 2 years (High)","Within 2 to 5 years (Medium)","Preventative and Mitigation Activities/Strategies"]
+            self.comboBox_int_activity_type.clear()
+            self.comboBox_int_activity_type.addItems(intervention_type)
+             
+            raccomandation_type = ["","Aerial photograph interpretation","Aerial/Drone survey","Archaeological excavation","archaeological monitoring","archaeological survey","architectural / measured survey","field observation","General Surface Collection","impact assessment","laser scanning survey","literature survey","photographic recording","photographic survey","salvage recording","satellite Imagery assessment","topographic survey","Transect/Grid Survey","Conservation Activity","adhesion","remedial conservation (Other)","consolidation","filling","improving /removal of previous conservation/restoration","in-depth condition assessment","restoration","repointing","scaffolding","shoring","structural strengthening/reinforcement","Maintenance Activity","surface cleaning","maintenance policy and programs","removal of vegetation","renewal of protective coating","Management Planning and Preventative Activity","designation / registration","development of conservation and management plan","fencing/enclosing","fire mitigation","flood mitigation","intervene with governmental authorities","intervene with owner/occupant/local inhabitants","reburial","relocation development proposal","site protection/improving security","temporary covering","No Action Needed","Other Activities"]
+            self.comboBox_raccomandation.clear()
+            self.comboBox_raccomandation.addItems(raccomandation_type)
+            
+            tg = ["","Animal/Pest Infestation","Aquaculture","Breaking/Smashing","Cable/Pipe Laying","Clearance (Bulldozing/Levelling)","Clearance (Hand)","Clearance (Unclassified)","Coastal Advance/Accretion","Coastal Erosion/Retreat","Conservation","Construction","Demolition/Destruction","Dissolved Salt","Dredging","Drilling","Drought","Dumping","Excavation (Bulldozing/Machinery)","Excavation (Hand)","Excavation (Unclassified)","Explosion/Heavy Weaponry","Fire","Flooding","Grafitti","Grazing/Animal Movement","Gunfire/Light Weaponry","Human Movement/Trampling","Inundation","Irrigation (Unclassified)","Irrigation (Channels)","Irrigation (Centre Pivot System)","Lack of Maintenance/Management/Legal Measures and Activities","Land/Rock Slide","Landmines","Landscaping","Maintenance/Management Activities","Mining/Quarrying (Unclassified)","Mining/Quarrying (Surface)","Mining/Quarrying (Open Trench/Pit)","Mining/Quarrying (Underground)","Mooring/Anchoring","No Visible/Known","Occupation/Continued Use","Ploughing","Pollution","Precipitation","Railway","Recession of water","Reconstruction","Refurbishment","Restoration","Road/Track","Salvage","Seismic Activity","Stationary Vehicle","Structural Robbing","Temperature/Humidity Change","Theft/Unauthorised Removal of Objects","Trawling","Tunelling","Vegetation/Crops/Trees","Volcanic Eruption","Water Action","Water and/or Wind Action","Wind Action","Unknown"]
+            self.comboBox_threat_category.clear()
+            self.comboBox_threat_category.addItems(tg)
+            
+            dg = ["","Animal/Pest Infestation","Aquaculture","Breaking/Smashing","Cable/Pipe Laying","Clearance (Bulldozing/Levelling)","Clearance (Hand)","Clearance (Unclassified)","Coastal Advance/Accretion","Coastal Erosion/Retreat","Conservation","Construction","Demolition/Destruction","Dissolved Salt","Dredging","Drilling","Drought","Dumping","Excavation (Bulldozing/Machinery)","Excavation (Hand)","Excavation (Unclassified)","Explosion/Heavy Weaponry","Fire","Flooding","Grafitti","Grazing/Animal Movement","Gunfire/Light Weaponry","Human Movement/Trampling","Inundation","Irrigation (Unclassified)","Irrigation (Channels)","Irrigation (Centre Pivot System)","Lack of Maintenance/Management/Legal Measures and Activities","Land/Rock Slide","Landmines","Landscaping","Maintenance/Management Activities","Mining/Quarrying (Unclassified)","Mining/Quarrying (Surface)","Mining/Quarrying (Open Trench/Pit)","Mining/Quarrying (Underground)","Mooring/Anchoring","No Visible/Known","Occupation/Continued Use","Ploughing","Pollution","Precipitation","Railway","Recession of water","Reconstruction","Refurbishment","Restoration","Road/Track","Salvage","Seismic Activity","Stationary Vehicle","Structural Robbing","Temperature/Humidity Change","Theft/Unauthorised Removal of Objects","Trawling","Tunelling","Vegetation/Crops/Trees","Volcanic Eruption","Water Action","Water and/or Wind Action","Wind Action","Unknown"]
+            self.comboBox_disturbance_cause_category.clear()
+            self.comboBox_disturbance_cause_category.addItems(dg)
+            
+            dtypy = ["","Biological Mean Sea Levelng","Chart Datum","Clearance (Hand)","Mean High Water","Mean Low Water","Mean Sea Level","Other","Regional/Local Datum","Unknown"]
+            self.comboBox_datum_type.clear()
+            self.comboBox_datum_type.addItems(dtypy)
+            
+            tidal = ["","Macrotidal (>4 m)","Mesotidal (2-4 m)","Microtidal (<2 m)"]
+            self.comboBox_tidal_energy.clear()
+            self.comboBox_tidal_energy.addItems(tidal)
+            
+            wave = ["","Monsoon","Protected","Storm Wave","Swell","Tide-dominated","Tropical Cyclone"]
+            self.comboBox_wave.clear()
+            self.comboBox_wave.addItems(wave)
+            
+            fetch = ["","Exposed (>100 km)","Moderately exposed (10-100 km)","Protected (<10 km)"]
+            self.comboBox_fetch.clear()
+            self.comboBox_fetch.addItems(fetch)
+            
+            depositional_process = ["","Aeolian","Biogenic","Chemical","Fluvial/Alluvial","Glacial","Lacustrine","Marine/Coastal","Organic","Slope","Volcanic/Igneous","Anthropogenic"]
+            self.comboBox_depositional.clear()
+            self.comboBox_depositional.addItems(depositional_process)
+            
+            surficial = ["","Coarse Sediment","Mixed Sediment","Mud (Clay and Silt)","Organic sediment/deposit","Palaeontological remains (macro)","Palaeontological remains (micro)","Rock and Boulders","Sand","Archaeological Deposit/Artefact Bearing Deposit"]
+            self.comboBox_surficial.clear()
+            self.comboBox_surficial.addItems(surficial)
+            
+            badrock = ["","Igenous (undefined)","Basalt","Conglomerate","Granite","Limestone/Chalk/Dolomite","Marble","Metamorphic (undefined)","Mudstone/Siltstone","Organic sedimentary rock","Sandstone","Sedimentary (undefined)","Slate","Tuff"]
+            self.comboBox_bedrock.clear()
+            self.comboBox_bedrock.addItems(badrock)
+            
+            landcover = ["","Aquatic Vegetation","Bare","Built-up","Crops","Flowing Water","Grass","Lichen & Mosses/Sparse Vegetation","Open Water","Shrubs","Snow/Ice","Standing Water","Trees"]
+            self.comboBox_land_cover_type.clear()
+            self.comboBox_land_cover_type.addItems(landcover)
+            
+            valuesTP4 = ["Alluvial Fan","Lake Bed","Lake Shore","Ocean/Sea Bed (Subtidal)","Ocean/Sea Shore","Bay/Inlet","Beach","Coast (linear/straight shore)","Coastal cliff","Delta","Estuary","Intertidal Flat","Island/Islet","Reef","Plain/Plateau","Precipice/Edge","Slopes","Summit","Unknown","Valley Bed","Valley Terrace","Watercourse Banks","Watercourse Bed",""]
+            self.delegateTP4 = ComboBoxDelegate()
+            self.delegateTP4.def_values(valuesTP4)
+            self.delegateTP4.def_editable('True')
+            self.tableWidget_topography_type.setItemDelegateForColumn(0,self.delegateTP4)
+            
+        except Exception as e:         
+            QMessageBox.warning(self, "Error", "Error 2 \n" + str(e), QMessageBox.Ok)
     def charge_list(self):
         sito_vl = self.UTILITY.tup_2_list_III(self.DB_MANAGER.group_by('site_table', 'name_site', 'SITE'))
         try:
@@ -613,7 +710,7 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
         
         
         # #lista years reference
-        grid = ['E35N33-11','E35N33-12','E35N33-13','E35N33-14','E35N33-21','E35N33-23','E35N33-24','E35N33-31','E35N33-32','E35N33-33','E35N33-34','E35N33-41','E35N33-42','E35N33-43','E35N33-44','E35N34-11','E35N34-12','E35N34-13','E35N34-14','E35N34-21','E35N34-22','E35N34-23','E35N34-24','E35N34-31','E35N34-32','E35N34-41','E35N34-42','E36N33-31','E36N33-33','E36N33-34','E36N34-11','E36N34-12','E36N34-13','E36N34-14','E36N34-21','E36N34-23','E36N34-31','E36N34-32']
+        grid = ['','E35N33-11','E35N33-12','E35N33-13','E35N33-14','E35N33-21','E35N33-23','E35N33-24','E35N33-31','E35N33-32','E35N33-33','E35N33-34','E35N33-41','E35N33-42','E35N33-43','E35N33-44','E35N34-11','E35N34-12','E35N34-13','E35N34-14','E35N34-21','E35N34-22','E35N34-23','E35N34-24','E35N34-31','E35N34-32','E35N34-41','E35N34-42','E36N33-31','E36N33-33','E36N33-34','E36N34-11','E36N34-12','E36N34-13','E36N34-14','E36N34-21','E36N34-23','E36N34-31','E36N34-32']
         self.comboBox_grid.clear()
         self.comboBox_grid.addItems(grid)
     def on_pushButton_sort_pressed(self):
@@ -801,8 +898,8 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
                 str(cspc),
                 str(spc),
                 str(self.comboBox_date_inference.currentText()),
-                str(self.comboBox_arch_date.currentText()),
-                str(self.comboBox_arch_date_to.currentText()),
+                str(self.lineEdit_arch_date.text()),
+                str(self.lineEdit_arch_date_to.text()),
                 str(self.mDateEdit_9.text()),
                 str(self.mDateEdit_10.text()),
                 str(self.mDateEdit_11.text()),
@@ -822,7 +919,7 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
                 str(self.comboBox_material_class.currentText()),
                 str(self.comboBox_material_type.currentText()),
                 str(self.comboBox_contruction_tech.currentText()),
-                str(self.comboBox_measurement_number.currentText()),
+                str(self.lineEdit_measurement_number.text()),
                 str(mu), 
                 str(dt), 
                 str(mst),        
@@ -849,15 +946,15 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
                 str(self.comboBox_related.currentText()),  # 4 - comune
                 str(topography_type),
                 str(self.comboBox_land_cover_type.currentText()),  # 4 - comune
-                str(self.comboBox_land_cover_assessment.currentText()),  # 4 - comune
+                str(self.lineEdit_land_cover_assessment.text()),  # 4 - comune
                 str(self.comboBox_surficial.currentText()),  # 4 - comune
                 str(self.comboBox_depositional.currentText()),  # 4 - comune
                 str(self.comboBox_bedrock.currentText()),  # 4 - comune
                 str(self.comboBox_fetch.currentText()),  # 4 - comune
                 str(self.comboBox_wave.currentText()),  # 4 - comune
                 str(self.comboBox_tidal_energy.currentText()),  # 4 - comune
-                str(self.comboBox_depth_max.currentText()),  # 4 - comune
-                str(self.comboBox_depth_min.currentText()),  # 4 - comune
+                str(self.lineEdit_depth_max.text()),  # 4 - comune
+                str(self.lineEdit_depth_min.text()),  # 4 - comune
                 str(self.comboBox_datum_type.currentText()),  # 4 - comune
                 str(self.comboBox_datum_description.currentText()),  # 4 - comune
                 str(self.comboBox_restricted.currentText()),  # 4 - comune
@@ -1173,13 +1270,13 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
                 self.TABLE_FIELDS[89]:"'" + str(self.comboBox_depositional.currentText()) +"'",  # 4 - comune
                 self.TABLE_FIELDS[92]:"'" + str(self.comboBox_wave.currentText()) +"'",  # 4 - comune
                 self.TABLE_FIELDS[96]:"'" + str(self.comboBox_datum_type.currentText()) +"'",  # 4 - comune
-                self.TABLE_FIELDS[87]:"'" + str(self.comboBox_land_cover_assessment.currentText()) +"'",  # 4 - comune
+                self.TABLE_FIELDS[87]:"'" + str(self.lineEdit_land_cover_assessment.text()) +"'",  # 4 - comune
                 self.TABLE_FIELDS[90]:"'" + str(self.comboBox_bedrock.currentText()) +"'",  # 4 - comune
-                self.TABLE_FIELDS[94]:"'" + str(self.comboBox_depth_max.currentText()) +"'",  # 4 - comune
+                self.TABLE_FIELDS[94]:"'" + str(self.lineEdit_depth_max.text()) +"'",  # 4 - comune
                 self.TABLE_FIELDS[97]:"'" + str(self.comboBox_datum_description.currentText()) +"'",  # 4 - comune
                 self.TABLE_FIELDS[88]:"'" + str(self.comboBox_surficial.currentText()) +"'",  # 4 - comune
                 self.TABLE_FIELDS[91]:"'" + str(self.comboBox_fetch.currentText()) +"'",  # 4 - comune
-                self.TABLE_FIELDS[95]:"'" + str(self.comboBox_depth_min.currentText()) +"'",  # 4 - comune
+                self.TABLE_FIELDS[95]:"'" + str(self.lineEdit_depth_min.text()) +"'",  # 4 - comune
                 self.TABLE_FIELDS[93]:"'" + str(self.comboBox_tidal_energy.currentText()) +"'",  # 4 - comune
                 self.TABLE_FIELDS[98]:"'" + str(self.comboBox_restricted.currentText()) +"'",  # 4 - comune
                 
@@ -1414,8 +1511,8 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
             self.tableWidget_sub_period_cert.removeRow(0)
         #self.insert_new_row("self.tableWidget_sub_period_cert")
         self.comboBox_date_inference.setEditText('')
-        self.comboBox_arch_date.setEditText('')
-        self.comboBox_arch_date_to.setEditText('')
+        self.lineEdit_arch_date.clear()
+        self.lineEdit_arch_date_to.clear()
         self.mDateEdit_9.clear()
         self.mDateEdit_10.clear()
         self.mDateEdit_11.clear()
@@ -1455,7 +1552,7 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
         self.comboBox_material_class.setEditText('')
         self.comboBox_material_type.setEditText('')
         self.comboBox_contruction_tech.setEditText('')
-        self.comboBox_measurement_number.setEditText('')
+        self.lineEdit_measurement_number.clear()
         for i in range(mu):
             self.tableWidget_measurement_unit.removeRow(0)
         #self.insert_new_row("self.tableWidget_measurement_unit")
@@ -1506,15 +1603,15 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
             self.tableWidget_topography_type.removeRow(0)            
         #self.insert_new_row("self.tableWidget_topography_type")
         self.comboBox_land_cover_type.setEditText('')  # 4 - comune
-        self.comboBox_land_cover_assessment.setEditText('')  # 4 - comune
+        self.lineEdit_land_cover_assessment.clear()  # 4 - comune
         self.comboBox_surficial.setEditText('')  # 4 - comune
         self.comboBox_depositional.setEditText('')  # 4 - comune
         self.comboBox_bedrock.setEditText('')  # 4 - comune
         self.comboBox_fetch.setEditText('')  # 4 - comune
         self.comboBox_wave.setEditText('')  # 4 - comune
         self.comboBox_tidal_energy.setEditText('')  # 4 - comune
-        self.comboBox_depth_max.setEditText('')  # 4 - comune
-        self.comboBox_depth_min.setEditText('')  # 4 - comune
+        self.lineEdit_depth_max.clear()  # 4 - comune
+        self.lineEdit_depth_min.clear()  # 4 - comune
         self.comboBox_datum_type.setEditText('')  # 4 - comune
         self.comboBox_datum_description.setEditText('')  # 4 - comune
         self.comboBox_restricted.setEditText('')  # 4 - comune
@@ -1562,8 +1659,8 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
             self.tableInsertData("self.tableWidget_cultural_sub_period_cert", self.DATA_LIST[self.rec_num].cultural_subperiod_type)
             self.tableInsertData("self.tableWidget_sub_period_cert", self.DATA_LIST[self.rec_num].cultural_subperiod_certainty)
             str(self.comboBox_date_inference.setEditText(self.DATA_LIST[self.rec_num].date_inference_making_actor))
-            str(self.comboBox_arch_date.setEditText(self.DATA_LIST[self.rec_num].archaeological_date_from))
-            str(self.comboBox_arch_date_to.setEditText(self.DATA_LIST[self.rec_num].archaeological_date_to))
+            str(self.lineEdit_arch_date.setText(self.DATA_LIST[self.rec_num].archaeological_date_from))
+            str(self.lineEdit_arch_date_to.setText(self.DATA_LIST[self.rec_num].archaeological_date_to))
             self.mDateEdit_9.setText(self.DATA_LIST[self.rec_num].bp_date_from)
             self.mDateEdit_10.setText(self.DATA_LIST[self.rec_num].bp_date_to)
             self.mDateEdit_11.setText(self.DATA_LIST[self.rec_num].ah_date_from)
@@ -1583,7 +1680,7 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
             str(self.comboBox_material_class.setEditText(self.DATA_LIST[self.rec_num].material_class))
             str(self.comboBox_material_type.setEditText(self.DATA_LIST[self.rec_num].material_type))
             str(self.comboBox_contruction_tech.setEditText(self.DATA_LIST[self.rec_num].construction_technique))
-            str(self.comboBox_measurement_number.setEditText(self.DATA_LIST[self.rec_num].measurement_number))
+            str(self.lineEdit_measurement_number.setText(self.DATA_LIST[self.rec_num].measurement_number))
             self.tableInsertData("self.tableWidget_measurement_unit", self.DATA_LIST[self.rec_num].measurement_unit) 
             self.tableInsertData("self.tableWidget_dimension_type", self.DATA_LIST[self.rec_num].dimension_type) 
             self.tableInsertData("self.tableWidget_measurement_siurce_type", self.DATA_LIST[self.rec_num].measurement_source_type)   
@@ -1610,15 +1707,15 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
             str(self.comboBox_related.setEditText(self.DATA_LIST[self.rec_num].related_detailed_condition_resource))  # 4 - comune
             self.tableInsertData("self.tableWidget_topography_type", self.DATA_LIST[self.rec_num].topography_type)
             str(self.comboBox_land_cover_type.setEditText(self.DATA_LIST[self.rec_num].land_cover_type))  # 4 - comune
-            str(self.comboBox_land_cover_assessment.setEditText(self.DATA_LIST[self.rec_num].land_cover_assessment_date))  # 4 - comune
+            str(self.lineEdit_land_cover_assessment.setText(self.DATA_LIST[self.rec_num].land_cover_assessment_date))  # 4 - comune
             str(self.comboBox_surficial.setEditText(self.DATA_LIST[self.rec_num].surficial_geology_type))  # 4 - comune
             str(self.comboBox_depositional.setEditText(self.DATA_LIST[self.rec_num].depositional_process))  # 4 - comune
             str(self.comboBox_bedrock.setEditText(self.DATA_LIST[self.rec_num].bedrock_geology))  # 4 - comune
             str(self.comboBox_fetch.setEditText(self.DATA_LIST[self.rec_num].fetch_type))  # 4 - comune
             str(self.comboBox_wave.setEditText(self.DATA_LIST[self.rec_num].wave_climate))  # 4 - comune
             str(self.comboBox_tidal_energy.setEditText(self.DATA_LIST[self.rec_num].tidal_energy))  # 4 - comune
-            str(self.comboBox_depth_max.setEditText(self.DATA_LIST[self.rec_num].minimum_depth_max_elevation))  # 4 - comune
-            str(self.comboBox_depth_min.setEditText(self.DATA_LIST[self.rec_num].maximum_depth_min_elevation))  # 4 - comune
+            str(self.lineEdit_depth_max.setText(self.DATA_LIST[self.rec_num].minimum_depth_max_elevation))  # 4 - comune
+            str(self.lineEdit_depth_min.setText(self.DATA_LIST[self.rec_num].maximum_depth_min_elevation))  # 4 - comune
             str(self.comboBox_datum_type.setEditText(self.DATA_LIST[self.rec_num].datum_type))  # 4 - comune
             str(self.comboBox_datum_description.setEditText(self.DATA_LIST[self.rec_num].datum_description_epsg_code))  # 4 - comune
             str(self.comboBox_restricted.setEditText(self.DATA_LIST[self.rec_num].restricted_access_record_designation))
@@ -1713,8 +1810,8 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
             str(cspc),
             str(spc),
             str(self.comboBox_date_inference.currentText()),
-            str(self.comboBox_arch_date.currentText()),
-            str(self.comboBox_arch_date_to.currentText()),
+            str(self.lineEdit_arch_date.text()),
+            str(self.lineEdit_arch_date_to.text()),
             str(self.mDateEdit_9.text()),
             str(self.mDateEdit_10.text()),
             str(self.mDateEdit_11.text()),
@@ -1734,7 +1831,7 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
             str(self.comboBox_material_class.currentText()),
             str(self.comboBox_material_type.currentText()),
             str(self.comboBox_contruction_tech.currentText()),
-            str(self.comboBox_measurement_number.currentText()),
+            str(self.lineEdit_measurement_number.text()),
             str(mu), 
             str(dt), 
             str(mst),        
@@ -1761,15 +1858,15 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
             str(self.comboBox_related.currentText()),  # 4 - comune
             str(topography_type),
             str(self.comboBox_land_cover_type.currentText()),  # 4 - comune
-            str(self.comboBox_land_cover_assessment.currentText()),  # 4 - comune
+            str(self.lineEdit_land_cover_assessment.text()),  # 4 - comune
             str(self.comboBox_surficial.currentText()),  # 4 - comune
             str(self.comboBox_depositional.currentText()),  # 4 - comune
             str(self.comboBox_bedrock.currentText()),  # 4 - comune
             str(self.comboBox_fetch.currentText()),  # 4 - comune
             str(self.comboBox_wave.currentText()),  # 4 - comune
             str(self.comboBox_tidal_energy.currentText()),  # 4 - comune
-            str(self.comboBox_depth_max.currentText()),  # 4 - comune
-            str(self.comboBox_depth_min.currentText()),  # 4 - comune
+            str(self.lineEdit_depth_max.text()),  # 4 - comune
+            str(self.lineEdit_depth_min.text()),  # 4 - comune
             str(self.comboBox_datum_type.currentText()),  # 4 - comune
             str(self.comboBox_datum_description.currentText()),  # 4 - comune
             str(self.comboBox_restricted.currentText())]
