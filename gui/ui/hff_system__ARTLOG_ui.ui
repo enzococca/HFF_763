@@ -1521,6 +1521,12 @@
       </property>
       <item row="1" column="6">
        <widget class="QPushButton" name="pushButton_sort">
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <pointsize>9</pointsize>
@@ -1546,6 +1552,12 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="toolTip">
          <string/>
         </property>
@@ -1553,8 +1565,8 @@
          <string>GIS View </string>
         </property>
         <property name="icon">
-         <iconset>
-          <normaloff>:/images/GIS.png</normaloff>:/images/GIS.png</iconset>
+         <iconset resource="../../resources/resources.qrc">
+          <normaloff>:/icons/GIS.png</normaloff>:/icons/GIS.png</iconset>
         </property>
         <property name="shortcut">
          <string>Ctrl+G</string>
@@ -1566,7 +1578,7 @@
          <bool>false</bool>
         </property>
         <property name="toolButtonStyle">
-         <enum>Qt::ToolButtonTextOnly</enum>
+         <enum>Qt::ToolButtonIconOnly</enum>
         </property>
         <property name="arrowType">
          <enum>Qt::NoArrow</enum>
@@ -1575,6 +1587,12 @@
       </item>
       <item row="0" column="6">
        <widget class="QPushButton" name="pushButton_new_rec">
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <pointsize>9</pointsize>
@@ -1594,6 +1612,12 @@
       </item>
       <item row="1" column="5">
        <widget class="QPushButton" name="pushButton_search_go">
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <pointsize>9</pointsize>
@@ -1613,6 +1637,12 @@
       </item>
       <item row="0" column="5">
        <widget class="QPushButton" name="pushButton_last_rec">
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="toolTip">
          <string>Last rec</string>
         </property>
@@ -1627,6 +1657,12 @@
       </item>
       <item row="0" column="7">
        <widget class="QPushButton" name="pushButton_save">
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <pointsize>9</pointsize>
@@ -1649,6 +1685,12 @@
       </item>
       <item row="1" column="4">
        <widget class="QPushButton" name="pushButton_new_search">
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <pointsize>9</pointsize>
@@ -1670,8 +1712,8 @@
        <widget class="QPushButton" name="pushButton_delete">
         <property name="maximumSize">
          <size>
-          <width>75</width>
-          <height>16777215</height>
+          <width>30</width>
+          <height>30</height>
          </size>
         </property>
         <property name="font">
@@ -1698,8 +1740,8 @@
        <widget class="QPushButton" name="pushButton_prev_rec">
         <property name="maximumSize">
          <size>
-          <width>16777215</width>
-          <height>16777215</height>
+          <width>30</width>
+          <height>30</height>
          </size>
         </property>
         <property name="toolTip">
@@ -1716,6 +1758,12 @@
       </item>
       <item row="0" column="4">
        <widget class="QPushButton" name="pushButton_next_rec">
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="toolTip">
          <string>Next rec</string>
         </property>
@@ -1730,6 +1778,12 @@
       </item>
       <item row="1" column="7">
        <widget class="QPushButton" name="pushButton_view_all">
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <pointsize>9</pointsize>
@@ -1755,6 +1809,12 @@
           <verstretch>0</verstretch>
          </sizepolicy>
         </property>
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="toolTip">
          <string>First rec</string>
         </property>
@@ -1769,13 +1829,16 @@
       </item>
       <item row="2" column="2">
        <widget class="QPushButton" name="pushButton_form">
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <pointsize>8</pointsize>
          </font>
-        </property>
-        <property name="text">
-         <string>Export PDF</string>
         </property>
         <property name="icon">
          <iconset resource="../../resources/resources.qrc">
@@ -1785,13 +1848,19 @@
       </item>
       <item row="2" column="3">
        <widget class="QPushButton" name="pushButton_list">
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <pointsize>8</pointsize>
          </font>
         </property>
         <property name="text">
-         <string>List</string>
+         <string/>
         </property>
         <property name="icon">
          <iconset resource="../../resources/resources.qrc">
@@ -1801,6 +1870,12 @@
       </item>
       <item row="2" column="4">
        <widget class="QToolButton" name="toolButtonPreviewMedia">
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <pointsize>8</pointsize>
@@ -1810,11 +1885,11 @@
          <string/>
         </property>
         <property name="text">
-         <string>Preview </string>
+         <string/>
         </property>
         <property name="icon">
-         <iconset>
-          <normaloff>:/images/GIS.png</normaloff>:/images/GIS.png</iconset>
+         <iconset resource="../../resources/resources.qrc">
+          <normaloff>:/icons/photo.png</normaloff>:/icons/photo.png</iconset>
         </property>
         <property name="shortcut">
          <string>Ctrl+G</string>
@@ -1826,7 +1901,7 @@
          <bool>true</bool>
         </property>
         <property name="toolButtonStyle">
-         <enum>Qt::ToolButtonTextOnly</enum>
+         <enum>Qt::ToolButtonIconOnly</enum>
         </property>
         <property name="arrowType">
          <enum>Qt::NoArrow</enum>
@@ -1835,8 +1910,11 @@
       </item>
       <item row="2" column="5">
        <widget class="QPushButton" name="pushButton_open_dir">
-        <property name="text">
-         <string>Open folder</string>
+        <property name="maximumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
         </property>
         <property name="icon">
          <iconset resource="../../resources/resources.qrc">
