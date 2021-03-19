@@ -49,8 +49,8 @@ class HFF_systemDialog_Config(QDialog, MAIN_DIALOG_CLASS):
                    'PORT': '',
                    'USER': '',
                    'THUMB_PATH': '',
-                   'THUMB_RESIZE': '',
-                   'EXPERIMENTAL': ''}
+                   'THUMB_RESIZE': ''}
+                   # 'EXPERIMENTAL': ''}
     def __init__(self, parent=None, db=None):
         QDialog.__init__(self, parent)
         # Set up the user interface from Designer.
@@ -263,7 +263,7 @@ class HFF_systemDialog_Config(QDialog, MAIN_DIALOG_CLASS):
         self.PARAMS_DICT['USER'] = str(self.lineEdit_User.text())
         self.PARAMS_DICT['THUMB_PATH'] = str(self.lineEdit_Thumb_path.text())
         self.PARAMS_DICT['THUMB_RESIZE'] = str(self.lineEdit_Thumb_resize.text())
-        self.PARAMS_DICT['EXPERIMENTAL'] = str(self.comboBox_experimental.currentText())
+        # self.PARAMS_DICT['EXPERIMENTAL'] = str(self.comboBox_experimental.currentText())
         self.save_dict()
         self.try_connection()
         # QMessageBox.warning(self, "ok", "Per rendere effettive le modifiche e' necessario riavviare Qgis. Grazie.",
@@ -664,11 +664,11 @@ class HFF_systemDialog_Config(QDialog, MAIN_DIALOG_CLASS):
         self.lineEdit_User.setText(self.PARAMS_DICT['USER'])
         self.lineEdit_Thumb_path.setText(self.PARAMS_DICT['THUMB_PATH'])
         self.lineEdit_Thumb_resize.setText(self.PARAMS_DICT['THUMB_RESIZE'])
-        try:
-            self.comboBox_experimental.setEditText(self.PARAMS_DICT['EXPERIMENTAL'])
-        except:
-            self.comboBox_experimental.setEditText("No")
-            ###############
+        # try:
+            # self.comboBox_experimental.setEditText(self.PARAMS_DICT['EXPERIMENTAL'])
+        # except:
+            # self.comboBox_experimental.setEditText("No")
+            # ###############
     def test_def(self):
         pass
     def on_pushButton_import_pressed(self):
