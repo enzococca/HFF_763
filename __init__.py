@@ -50,7 +50,9 @@ missing_libraries = []
 
 
 try:
-    import sqlalchemy
+    import pkg_resources
+
+    pkg_resources.require("sqlalchemy==1.3.23")
 except Exception as e:
     missing_libraries.append(str(e))
 
