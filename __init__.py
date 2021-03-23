@@ -68,7 +68,14 @@ try:
     import sqlalchemy_utils
 except Exception as e:
     missing_libraries.append(str(e))
-
+try:
+    import geoalchemy2
+except Exception as e:
+    missing_libraries.append(str(e))
+try:
+    import pdf2docx
+except Exception as e:
+    missing_libraries.append(str(e))
 try:
     import pandas
 except Exception as e:

@@ -24,22 +24,38 @@ from sqlalchemy.event import listen
 from builtins import range
 from builtins import str
 import pysftp
+import pandas as pd
+from pandas import DataFrame
+
+import subprocess
+from geoalchemy2 import *
 from sqlalchemy.sql import select, func
+from geoalchemy2 import func as funcgeom
 from sqlalchemy import create_engine
-from qgis.PyQt.QtWidgets import QApplication, QDialog, QMessageBox, QFileDialog,QLineEdit
-from qgis.PyQt.uic import loadUiType
-from qgis.PyQt.QtCore import QUrl
-from qgis.core import QgsApplication, QgsSettings, QgsProject
+from sqlalchemy.dialects import postgresql
+from sqlalchemy.dialects.postgresql import insert
+from sqlalchemy.ext.compiler import compiles
+from sqlalchemy.sql.expression import *
 from qgis.PyQt.QtGui import QDesktopServices
+from qgis.PyQt.QtCore import  pyqtSlot, pyqtSignal,QThread,QUrl
+from qgis.PyQt.QtWidgets import QApplication, QDialog, QMessageBox, QFileDialog,QLineEdit,QWidget,QCheckBox
+from qgis.PyQt.QtSql import *
+from qgis.PyQt.uic import loadUiType
+from qgis.core import QgsApplication, QgsSettings, QgsProject
 from ..modules.db.hff_system__conn_strings import Connection
 from ..modules.db.hff_db_manager import Hff_db_management
 from ..modules.db.hff_system__db_update import DB_update
+from ..modules.db.hff_system__utility import Utility
 from ..modules.db.db_createdump import CreateDatabase, RestoreSchema, DropDatabase, SchemaDump
 from ..modules.utility.hff_system__OS_utility import Hff_OS_Utility
 from ..modules.utility.hff_system__print_utility import Print_utility
 MAIN_DIALOG_CLASS, _ = loadUiType(os.path.join(os.path.dirname(__file__), 'ui', 'hff_system_ConfigDialog.ui'))
 
 class HFF_systemDialog_Config(QDialog, MAIN_DIALOG_CLASS):
+    progressBarUpdated = pyqtSignal(int,int)
+    L=QgsSettings().value("locale/userLocale")[0:2]
+    UTILITY=Utility()
+    DB_MANAGER=""
     HOME = os.environ['HFF_HOME']
     DBFOLDER = '{}{}{}'.format(HOME, os.sep, "HFF_DB_folder")
     PARAMS_DICT = {'SERVER': '',
@@ -49,48 +65,318 @@ class HFF_systemDialog_Config(QDialog, MAIN_DIALOG_CLASS):
                    'PORT': '',
                    'USER': '',
                    'THUMB_PATH': '',
-                   'THUMB_RESIZE': ''}
-                   # 'EXPERIMENTAL': ''}
+                   'THUMB_RESIZE': '',
+                   'SITE_SET': ''
+                   }
     def __init__(self, parent=None, db=None):
         QDialog.__init__(self, parent)
         # Set up the user interface from Designer.
+
         self.setupUi(self)
+
         s = QgsSettings()
+        
         self.load_dict()
         self.charge_data()
+        self.db_active()
+        self.lineEdit_DBname.textChanged.connect(self.db_uncheck)
+        self.pushButton_upd_postgres.setEnabled(False)
+        self.pushButton_upd_sqlite.setEnabled(False)
+        self.comboBox_sito.currentIndexChanged.connect(self.summary)
+        self.comboBox_Database.currentIndexChanged.connect(self.db_active)
         self.comboBox_Database.currentIndexChanged.connect(self.set_db_parameter)
+
+
         self.comboBox_server_rd.editTextChanged.connect(self.set_db_import_from_parameter)
         self.comboBox_server_wt.editTextChanged.connect(self.set_db_import_to_parameter)
+
+        self.pushButton_save.clicked.connect(self.summary)
         self.pushButton_save.clicked.connect(self.on_pushButton_save_pressed)
+
         self.pushButtonGraphviz.clicked.connect(self.setPathGraphviz)
         self.pbnSaveEnvironPath.clicked.connect(self.setEnvironPath)
+        self.toolButton_logo.clicked.connect(self.setPathlogo)
         self.toolButton_thumbpath.clicked.connect(self.setPathThumb)
         self.toolButton_resizepath.clicked.connect(self.setPathResize)
         self.toolButton_set_dbsqlite1.clicked.connect(self.setPathDBsqlite1)
         self.toolButton_set_dbsqlite2.clicked.connect(self.setPathDBsqlite2)
-        self.toolButton_db.clicked.connect(self.setPathDB)
-        self.pushButtonR.clicked.connect(self.setPathR)
-        self.pbnSaveEnvironPathR.clicked.connect(self.setEnvironPathR)
-        self.graphviz_bin = s.value('HFF_system/graphvizBinPath', None, type=str)
         self.pbnOpenthumbDirectory.clicked.connect(self.openthumbDir)
         self.pbnOpenresizeDirectory.clicked.connect(self.openresizeDir)
         
+        self.toolButton_db.clicked.connect(self.setPathDB)
+        self.pushButtonR.clicked.connect(self.setPathR)
+        self.pbnSaveEnvironPathR.clicked.connect(self.setEnvironPathR)
+        self.comboBox_server_rd.currentTextChanged.connect(self.geometry_conn)
+        
+        self.pushButton_import.clicked.connect(self.on_pushButton_import_pressed)
+        self.graphviz_bin = s.value('HFF_system/graphvizBinPath', None, type=str)
+
         if self.graphviz_bin:
             self.lineEditGraphviz.setText(self.graphviz_bin)
+
         if Hff_OS_Utility.checkGraphvizInstallation():
             self.pushButtonGraphviz.setEnabled(False)
             self.pbnSaveEnvironPath.setEnabled(False)
             self.lineEditGraphviz.setEnabled(False)
+
         self.r_bin = s.value('HFF_system/rBinPath', None, type=str)
         if self.r_bin:
             self.lineEditR.setText(self.r_bin)
+
         if Hff_OS_Utility.checkRInstallation():
             self.pushButtonR.setEnabled(False)
             self.pbnSaveEnvironPathR.setEnabled(False)
             self.lineEditR.setEnabled(False)
+
+
+
+
         self.selectorCrsWidget.setCrs(QgsProject.instance().crs())
         self.selectorCrsWidget_sl.setCrs(QgsProject.instance().crs())
+        if self.checkBox_abort.isChecked():
+            self.checkBox_abort.setChecked(True)
+            self.checkBox_abort.stateChanged.connect(self.check)
+            self.checkBox_abort.stateChanged.connect(self.message)
+        elif self.checkBox_ignore.isChecked():
+            self.checkBox_ignore.setChecked(True)
+            self.checkBox_ignore.stateChanged.connect(self.check)
+            self.checkBox_ignore.stateChanged.connect(self.message)
+        elif self.checkBox_replace.isChecked():
+            self.checkBox_replace.setChecked(True)
+            self.checkBox_replace.stateChanged.connect(self.check)
+            self.checkBox_replace.stateChanged.connect(self.message)    
+        
+        self.check()
+    def geometry_conn(self):
+        if self.comboBox_server_rd.currentText()!='sqlite':
+            self.pushButton_import_geometry.setEnabled(False)
+        else:
+            self.pushButton_import_geometry.setEnabled(True)
     
+    def db_uncheck(self):
+        self.toolButton_active.setChecked(False)
+    
+    def message(self):
+        if self.checkBox_abort.isChecked():
+            
+            QMessageBox.warning(self, "Warning", "If there are duplicates the import will be aborted.\n If you want to ignore the duplicates or update with new data check one of the options ignore or replace", QMessageBox.Ok)
+    
+        elif self.checkBox_ignore.isChecked():
+            
+            QMessageBox.warning(self, "Warning", 'Only new data will be copied', QMessageBox.Ok)
+        
+        elif self.checkBox_replace.isChecked():
+            
+            
+            QMessageBox.warning(self, "Warning", 'New data will be copied and existing data will be updated', QMessageBox.Ok)
+        
+    
+    def check(self):
+        try:
+            if self.checkBox_ignore.isChecked():
+
+                @compiles(Insert)
+                def _prefix_insert_with_ignore(insert_srt, compiler, **kw):
+
+                    conn = Connection()
+                    conn_str = conn.conn_str()
+                    test_conn = conn_str.find("sqlite")
+                    if test_conn == 0:
+                        return compiler.visit_insert(insert_srt.prefix_with('OR IGNORE'), **kw)
+                    else:
+                        #return compiler.visit_insert(insert.prefix_with(''), **kw)
+                        pk = insert_srt.table.primary_key
+                        insert = compiler.visit_insert(insert_srt, **kw)
+                        ondup = f'ON CONFLICT ({",".join(c.name for c in pk)}) DO NOTHING'
+                        #updates = ', '.join(f"{c.name}=EXCLUDED.{c.name}" for c in insert_srt.table.columns)
+                        upsert = ' '.join((insert, ondup))
+                        return upsert
+           
+            if self.checkBox_replace.isChecked():
+
+                @compiles(Insert)
+                def _prefix_insert_with_replace(insert_srt, compiler, **kw):
+                    ##############importo i dati nuovi aggiornando i vecchi dati########################
+                    conn = Connection()
+                    conn_str = conn.conn_str()
+                    test_conn = conn_str.find("sqlite")
+                    if test_conn == 0:
+                        return compiler.visit_insert(insert_srt.prefix_with('OR REPLACE'), **kw)
+                    else:
+                        #return compiler.visit_insert(insert.prefix_with(''), **kw)
+                        pk = insert_srt.table.primary_key
+                        insert = compiler.visit_insert(insert_srt, **kw)
+                        ondup = f'ON CONFLICT ({",".join(c.name for c in pk)}) DO UPDATE SET'
+                        updates = ', '.join(f"{c.name}=EXCLUDED.{c.name}" for c in insert_srt.table.columns)
+                        upsert = ' '.join((insert, ondup, updates))
+                        return upsert
+        
+            if self.checkBox_abort.isChecked():
+
+                @compiles(Insert)
+                def _prefix_insert_with_ignore(insert_srt, compiler, **kw):
+
+                    conn = Connection()
+                    conn_str = conn.conn_str()
+                    test_conn = conn_str.find("sqlite")
+                    if test_conn == 0:
+                        return compiler.visit_insert(insert_srt.prefix_with('OR ABORT'), **kw)
+                    else:
+                        #return compiler.visit_insert(insert.prefix_with(''), **kw)
+                        pk = insert_srt.table.primary_key
+                        insert = compiler.visit_insert(insert_srt, **kw)
+                        ondup = f'ON CONFLICT ({",".join(c.name for c in pk)}) DO NOTHING'
+                        #updates = ', '.join(f"{c.name}=EXCLUDED.{c.name}" for c in insert_srt.table.columns)
+                        upsert = ' '.join((insert, ondup))
+                        return upsert
+        
+        
+        except:
+            pass
+    def summary(self):
+        try: 
+            self.comboBox_Database.update()
+            conn = Connection()
+            conn_str = conn.conn_str()
+            conn_sqlite = conn.databasename()
+            conn_user = conn.datauser()
+            conn_host = conn.datahost()
+            conn_port = conn.dataport()
+            port_int  = conn_port["port"]
+            port_int.replace("'", "")
+            #QMessageBox.warning(self, "Attenzione", port_int, QMessageBox.Ok)
+            conn_password = conn.datapassword()
+
+
+            sito_set= conn.sito_set()
+            sito_set_str = sito_set['sito_set']
+
+            test_conn = conn_str.find('sqlite')
+            if test_conn == 0:
+                sqlite_DB_path = '{}{}{}'.format(self.HOME, os.sep,
+                                               "HFF_DB_folder")
+                db = QSqlDatabase("QSQLITE")
+                db.setDatabaseName(sqlite_DB_path +os.sep+ conn_sqlite["db_name"])
+                db.open()
+                #self.table = QTableView()
+                self.model_a = QSqlQueryModel()
+
+                self.tableView_summary.setModel(self.model_a)
+                if bool(self.comboBox_sito.currentText()):
+                    query = QSqlQuery("select distinct a.site as 'Location',case when count( distinct a.divelog_id)=0  then 'Divelog ID "
+                                      "missing' else  count( distinct a.divelog_id)  end as 'Divelog ID Total',case when count("
+                                      "distinct b.anchors_id)=0 then 'No Anchor' else count(distinct "
+                                      "b.anchors_id)end as 'Total Anchors',case when count(distinct "
+                                      "c.artefact_id)=0 then 'No Artefact' else count(distinct c.artefact_id)end as "
+                                      "'Total Artefact',case when count(distinct d.artefact_id)=0 then 'No Pottery' else "
+                                      "count(distinct d.artefact_id)end as 'Total Pottery' from dive_log as a left join "
+                                      "anchor_table as b on a.site=b.site left join artefact_log as c on "
+                                      "a.site=c.site left join pottery_table as d on a.site=d.site where a.site = '{"
+                                      "}'".format(str(self.comboBox_sito.currentText())), db=db)
+                    self.model_a.setQuery(query)
+                else:
+                                
+                    query1 = QSqlQuery("select s.site as Location,(select count(distinct anchors_id) from anchor_table m "
+                                       "where s.site = m.site) as Anchor,(select count(distinct artefact_id) from "
+                                       "artefact_log st where s.site = st.site) as Artefact,(select count(distinct "
+                                       "artefact_id) from artefact_log t where s.site = t.site) as Artefact,"
+                                       "(select count(distinct artefact_id) from" 
+                                       "pottery_table pt where s.site = pt.site) as Pottery,(select count(distinct" 
+                                       "artefact_id) from pottery_table l where s.site = l.site) as Pottery,"	
+                                       "(select count(distinct divelog_id) from dive_log ad where s.site=ad.site) as Divelog ID from ("
+                                       "select site , count(distinct divelog_id) from dive_log group by site) as s order by "
+                                       "s.site;",db=db)
+                                       
+                    self.model_a.setQuery(query1)
+
+
+
+                # self.model_a.setTable("us_table")
+                # self.model_a.setEditStrategy(QSqlTableModel.OnManualSubmit)
+
+                # if bool (sito_set_str):
+                    # filter_str = "sito = '{}'".format(str(self.comboBox_sito.currentText()))
+                    # self.model_a.setFilter(filter_str)
+                    # self.model_a.select()
+                # else:
+
+                    # self.model_a.select()
+                self.tableView_summary.clearSpans()
+            else:
+
+                db = QSqlDatabase.addDatabase("QPSQL")
+                db.setHostName(conn_host["host"])
+
+                db.setDatabaseName(conn_sqlite["db_name"])
+                db.setPort(int(port_int))
+                db.setUserName(conn_user['user'])
+                db.setPassword(conn_password['password'])
+                db.open()
+
+
+
+                self.model_a = QSqlQueryModel()
+
+                self.tableView_summary.setModel(self.model_a)
+                if bool(self.comboBox_sito.currentText()):
+                    query = QSqlQuery("select distinct  a.sito as Sito ,count(distinct a.id_us) as US,count(distinct "
+                                      "c.id_struttura)as Struttura,count(distinct d.id_tomba) as Tombe from us_table "
+                                      "as a left join struttura_table as c on a.sito=c.sito left join tomba_table as "
+                                      "d on a.sito=d.sito where a.sito = '{}' group by a.sito order by us DESC ".format(
+                        str(self.comboBox_sito.currentText())), db=db)
+                    self.model_a.setQuery(query)
+                else:
+                    query1 = QSqlQuery("select s.sito as Sito,(select count(distinct id_invmat) from inventario_materiali_table m "
+                                       "where s.sito = m.sito) as Materiali,(select count(distinct id_struttura) from "
+                                       "struttura_table st where s.sito = st.sito) as Struttura,(select count(distinct "
+                                       "id_tomba) from tomba_table t where s.sito = t.sito) as Tombe,"
+                                       "(select count(distinct id_us) from us_table ad where s.sito=ad.sito) as US from ("
+                                       "select sito , count(distinct id_us) from us_table group by sito) as s order by "
+                                       "s.sito;",db=db)
+                    self.model_a.setQuery(query1)
+
+                self.tableView_summary.clearSpans()
+        except Exception as e:
+           QMessageBox.warning(self, "Attenzione", str(e), QMessageBox.Ok) 
+    def on_toolButton_active_toggled(self):
+        
+        try:    
+            if self.toolButton_active.isChecked():
+                QMessageBox.information(self, "HFF system", "Query system activated. Select a site and click on save parameters", QMessageBox.Ok)
+                self.charge_list()
+            else:
+                self.comboBox_sito.clear()
+                QMessageBox.information(self, "HFF system", "Query system deactivated", QMessageBox.Ok)
+        except Exception as e:
+            QMessageBox.information(self, "HFF system", str(e), QMessageBox.Ok)
+    def charge_list(self):
+        try:
+            self.try_connection()
+            sito_vl = self.UTILITY.tup_2_list_III(self.DB_MANAGER.group_by('site_table', 'location_', 'SITE'))
+
+            try:
+                sito_vl.remove('')
+            except:
+                pass
+            self.comboBox_sito.clear()
+            sito_vl.sort()
+            self.comboBox_sito.addItems(sito_vl)
+        except Exception as e:
+            QMessageBox.information(self, "HFF system", str(e), QMessageBox.Ok)
+    def db_active (self):
+        self.comboBox_Database.update()
+        self.comboBox_sito.clear()
+        if self.comboBox_Database.currentText() == 'sqlite':
+            #self.comboBox_Database.editTextChanged.connect(self.set_db_parameter)
+            self.toolButton_db.setEnabled(True)
+            # self.pushButton_upd_postgres.setEnabled(False)
+            # self.pushButton_upd_sqlite.setEnabled(True)
+        if self.comboBox_Database.currentText() == 'postgres':
+            #self.comboBox_Database.currentIndexChanged.connect(self.set_db_parameter)
+            self.toolButton_db.setEnabled(False)
+            # self.pushButton_upd_sqlite.setEnabled(False)
+            # self.pushButton_upd_postgres.setEnabled(True)
+        self.comboBox_sito.clear()
     def setPathDBsqlite1(self):
         s = QgsSettings()
         dbpath = QFileDialog.getOpenFileName(
@@ -160,6 +446,21 @@ class HFF_systemDialog_Config(QDialog, MAIN_DIALOG_CLASS):
         if self.thumbpath:
             self.lineEdit_Thumb_path.setText(self.thumbpath+"/")
             s.setValue('HFF_system/thumbpath', self.thumbpath)
+    
+    def setPathlogo(self):
+        
+        s = QgsSettings()
+        dbpath = QFileDialog.getOpenFileName(
+            self,
+            "Set file name",
+            self.DBFOLDER,
+            "image (*.*)"
+        )[0]
+        #filename=dbpath.split("/")[-1]
+        if dbpath:
+
+            self.lineEdit_logo.setText(dbpath)
+            s.setValue('',dbpath)
     
     def setPathResize(self):
         s = QgsSettings()
@@ -255,17 +556,47 @@ class HFF_systemDialog_Config(QDialog, MAIN_DIALOG_CLASS):
         f.write(str(self.PARAMS_DICT))
         f.close()
     def on_pushButton_save_pressed(self):
-        self.PARAMS_DICT['SERVER'] = str(self.comboBox_Database.currentText())
-        self.PARAMS_DICT['HOST'] = str(self.lineEdit_Host.text())
-        self.PARAMS_DICT['DATABASE'] = str(self.lineEdit_DBname.text())
-        self.PARAMS_DICT['PASSWORD'] = str(self.lineEdit_Password.text())
-        self.PARAMS_DICT['PORT'] = str(self.lineEdit_Port.text())
-        self.PARAMS_DICT['USER'] = str(self.lineEdit_User.text())
-        self.PARAMS_DICT['THUMB_PATH'] = str(self.lineEdit_Thumb_path.text())
-        self.PARAMS_DICT['THUMB_RESIZE'] = str(self.lineEdit_Thumb_resize.text())
-        # self.PARAMS_DICT['EXPERIMENTAL'] = str(self.comboBox_experimental.currentText())
-        self.save_dict()
-        self.try_connection()
+        self.comboBox_Database.update()
+        try:
+            if not bool(self.lineEdit_Password.text()) and str(self.comboBox_Database.currentText())=='postgres':
+                QMessageBox.warning(self, "INFO", "don't forget to insert the password",QMessageBox.Ok)
+            else:
+                self.PARAMS_DICT['SERVER'] = str(self.comboBox_Database.currentText())
+                self.PARAMS_DICT['HOST'] = str(self.lineEdit_Host.text())
+                self.PARAMS_DICT['DATABASE'] = str(self.lineEdit_DBname.text())
+                self.PARAMS_DICT['PASSWORD'] = str(self.lineEdit_Password.text())
+                self.PARAMS_DICT['PORT'] = str(self.lineEdit_Port.text())
+                self.PARAMS_DICT['USER'] = str(self.lineEdit_User.text())
+                self.PARAMS_DICT['THUMB_PATH'] = str(self.lineEdit_Thumb_path.text())
+                self.PARAMS_DICT['THUMB_RESIZE'] = str(self.lineEdit_Thumb_resize.text())
+                self.PARAMS_DICT['SITE_SET'] = str(self.comboBox_sito.currentText())
+                self.PARAMS_DICT['LOGO'] = str(self.lineEdit_logo.text())
+                self.save_dict()
+
+                if str(self.comboBox_Database.currentText())=='postgres':
+
+
+                    b=str(self.select_version_sql())
+
+                    a = "90313"
+
+                    if a == b:
+                        link = 'https://www.postgresql.org/download/'
+                        
+                        msg = "You are using the Postgres version: " + str(b)+". This version has become obsolete and you may find some errors. Update PostgreSQL to a newer version. <br><a href='%s'>PostgreSQL</a>" %link
+                        QMessageBox.information(self, "INFO", msg,QMessageBox.Ok)
+                    else:
+                        pass
+                else:
+                    pass
+
+
+                self.try_connection()
+
+        except Exception as e:
+            
+            
+            QMessageBox.warning(self, "INFO", "Db connection problem. Check the parameters inserted", QMessageBox.Ok)
         # QMessageBox.warning(self, "ok", "Per rendere effettive le modifiche e' necessario riavviare Qgis. Grazie.",
         #                     QMessageBox.Ok)
     def on_pushButton_crea_database_pressed(self,):
@@ -642,17 +973,39 @@ class HFF_systemDialog_Config(QDialog, MAIN_DIALOG_CLASS):
         else:
             QMessageBox.warning(self, "INFO", "The Database exsist already", QMessageBox.Ok)   
     def try_connection(self):
-        conn = Connection()
-        conn_str = conn.conn_str()
-        self.DB_MANAGER = Hff_db_management(
-            conn_str) 
-        test = self.DB_MANAGER.connection()
-        if test:
-            QMessageBox.warning(self, "Message", "Successfully connected", QMessageBox.Ok)
-        else:
-            QMessageBox.warning(self, "Alert", "Connection error: <br>" +
-                "Change the parameters and try to connect again. If you change servers (Postgres or Sqlite) remember to click on connect and REVIEW Qgis",
-                                QMessageBox.Ok)                         
+        try:
+            self.summary()
+            conn = Connection()
+            conn_str = conn.conn_str()
+
+            self.DB_MANAGER = Hff_db_management(conn_str)
+            test = self.DB_MANAGER.connection()
+
+            
+            if test:
+                QMessageBox.warning(self, "Message", "Successfully connected", QMessageBox.Ok)
+                self.pushButton_upd_postgres.setEnabled(False)
+                self.pushButton_upd_sqlite.setEnabled(True)
+            else:
+                self.comboBox_Database.update()
+                self.comboBox_sito.clear()
+                if self.comboBox_Database.currentText() == 'sqlite':
+                    #self.comboBox_Database.editTextChanged.connect(self.set_db_parameter)
+                    self.toolButton_db.setEnabled(True)
+                    self.pushButton_upd_postgres.setEnabled(False)
+                    self.pushButton_upd_sqlite.setEnabled(True)
+                if self.comboBox_Database.currentText() == 'postgres':
+                    #self.comboBox_Database.currentIndexChanged.connect(self.set_db_parameter)
+                    self.toolButton_db.setEnabled(False)
+                    self.pushButton_upd_sqlite.setEnabled(False)
+                    self.pushButton_upd_postgres.setEnabled(True)
+                self.comboBox_sito.clear()
+
+                QMessageBox.warning(self, "Alert", "Connection error: <br>" +
+                    "Change the parameters and try to connect again. If you change servers (Postgres or Sqlite) remember to click on connect and REVIEW Qgis",
+                                    QMessageBox.Ok)    
+        except Exception as e:
+            QMessageBox.warning(self, "Alert", str(e), QMessageBox.Ok)   
     def charge_data(self):
         # load data from config.cfg file
         # print self.PARAMS_DICT
@@ -664,6 +1017,8 @@ class HFF_systemDialog_Config(QDialog, MAIN_DIALOG_CLASS):
         self.lineEdit_User.setText(self.PARAMS_DICT['USER'])
         self.lineEdit_Thumb_path.setText(self.PARAMS_DICT['THUMB_PATH'])
         self.lineEdit_Thumb_resize.setText(self.PARAMS_DICT['THUMB_RESIZE'])
+        self.comboBox_sito.setCurrentText(self.PARAMS_DICT['SITE_SET'])    ###############
+        self.lineEdit_logo.setText(self.PARAMS_DICT['LOGO'])
         # try:
             # self.comboBox_experimental.setEditText(self.PARAMS_DICT['EXPERIMENTAL'])
         # except:
