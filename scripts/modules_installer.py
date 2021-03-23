@@ -43,7 +43,7 @@ if not packages:
         'elasticsearch',
         'pysftp',
         'xlsxwriter',
-        'opencv-python'.
+        'opencv-python',
         'openpyxl'
     ]
 python_path = sys.exec_prefix
