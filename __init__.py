@@ -85,6 +85,11 @@ try:
     import psycopg2
 except Exception as e:
     missing_libraries.append(str(e))
+    
+try:
+    import openpyxl
+except Exception as e:
+    missing_libraries.append(str(e))
 
 try:
     import elasticsearch
