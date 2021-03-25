@@ -44,7 +44,8 @@ if not packages:
         'pysftp',
         'xlsxwriter',
         'opencv-python',
-        'openpyxl'
+        'openpyxl',
+        'pyproj'
     ]
 python_path = sys.exec_prefix
 python_version = sys.version[:3]

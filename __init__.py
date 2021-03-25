@@ -60,6 +60,11 @@ try:
     import reportlab
 except Exception as e:
     missing_libraries.append(str(e))
+    
+try:
+    import pyproj
+except Exception as e:
+    missing_libraries.append(str(e))    
 
 try:
     import matplotlib

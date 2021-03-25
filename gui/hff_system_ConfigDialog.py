@@ -713,6 +713,10 @@ class HFF_systemDialog_Config(QDialog, MAIN_DIALOG_CLASS):
             c.execute(shipwreck_location)
             geom_ship="""SELECT AddGeometryColumn('shipwreck_location', 'the_geom', 0 , 'Point', 'XY') ;"""
             c.execute(geom_ship)
+            index_ship="""CREATE UNIQUE INDEX code_pid ON shipwreck_location (code);"""
+            c.execute(index_ship)
+            
+            
             ship="""CREATE VIEW IF NOT EXISTS "shipwreck_view" AS
                 SELECT id_shipwreck AS id_shipwreck,
                 a.code_id AS code_id, a.name_vessel AS name_vessel,
