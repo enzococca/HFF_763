@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>1238</width>
-    <height>732</height>
+    <height>766</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -508,122 +508,6 @@
    </item>
    <item row="2" column="0" colspan="2">
     <layout class="QGridLayout" name="gridLayout_20">
-     <item row="0" column="3">
-      <widget class="QComboBox" name="comboBox_name_site">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-         <horstretch>1</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>200</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>30</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>8</pointsize>
-         <weight>50</weight>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="mouseTracking">
-        <bool>true</bool>
-       </property>
-       <property name="whatsThis">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=l1nVPHf_1wI&amp;t=50s&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Doc&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-       <property name="editable">
-        <bool>true</bool>
-       </property>
-       <property name="currentText">
-        <string/>
-       </property>
-       <property name="maxVisibleItems">
-        <number>99999</number>
-       </property>
-       <property name="maxCount">
-        <number>2147483647</number>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="1">
-      <widget class="QComboBox" name="comboBox_location">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>300</width>
-         <height>0</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>30</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>8</pointsize>
-         <weight>50</weight>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="mouseTracking">
-        <bool>true</bool>
-       </property>
-       <property name="toolTip">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-       <property name="whatsThis">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=l1nVPHf_1wI&amp;t=50s&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Doc&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-       <property name="editable">
-        <bool>true</bool>
-       </property>
-       <property name="currentText">
-        <string/>
-       </property>
-       <property name="maxVisibleItems">
-        <number>99999</number>
-       </property>
-       <property name="maxCount">
-        <number>2147483647</number>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="2">
-      <widget class="QLabel" name="label_6">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string>Resource name</string>
-       </property>
-      </widget>
-     </item>
      <item row="0" column="5">
       <widget class="QComboBox" name="comboBox_grid">
        <property name="minimumSize">
@@ -839,23 +723,6 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="7">
-      <widget class="QComboBox" name="comboBox_restricted">
-       <property name="editable">
-        <bool>true</bool>
-       </property>
-       <item>
-        <property name="text">
-         <string>No</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Yes</string>
-        </property>
-       </item>
-      </widget>
-     </item>
      <item row="0" column="0">
       <widget class="QLabel" name="label">
        <property name="sizePolicy">
@@ -875,11 +742,154 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="6">
+     <item row="0" column="2">
+      <widget class="QLabel" name="label_6">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Resource name</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QComboBox" name="comboBox_location">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>300</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="mouseTracking">
+        <bool>true</bool>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="whatsThis">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=l1nVPHf_1wI&amp;t=50s&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Doc&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="editable">
+        <bool>true</bool>
+       </property>
+       <property name="currentText">
+        <string/>
+       </property>
+       <property name="maxVisibleItems">
+        <number>99999</number>
+       </property>
+       <property name="maxCount">
+        <number>2147483647</number>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QComboBox" name="comboBox_name_site">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>1</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>200</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="mouseTracking">
+        <bool>true</bool>
+       </property>
+       <property name="whatsThis">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=l1nVPHf_1wI&amp;t=50s&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;Doc&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="editable">
+        <bool>true</bool>
+       </property>
+       <property name="currentText">
+        <string/>
+       </property>
+       <property name="maxVisibleItems">
+        <number>99999</number>
+       </property>
+       <property name="maxCount">
+        <number>2147483647</number>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
       <widget class="QLabel" name="label_3">
        <property name="text">
         <string>Restricted Access</string>
        </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QComboBox" name="comboBox_restricted">
+       <property name="editable">
+        <bool>true</bool>
+       </property>
+       <item>
+        <property name="text">
+         <string>Yes</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>No</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Directorate General of Antiquities of Lebanon</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>MarEA Staff, EAMENA/MarEA staff</string>
+        </property>
+       </item>
       </widget>
      </item>
     </layout>
@@ -1172,14 +1182,14 @@
      <widget class="QWidget" name="scrollAreaWidgetContents">
       <property name="geometry">
        <rect>
-        <x>0</x>
+        <x>-6</x>
         <y>0</y>
         <width>1224</width>
-        <height>569</height>
+        <height>577</height>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_4">
-       <item row="0" column="1">
+       <item row="0" column="0">
         <widget class="QTabWidget" name="tabWidget">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -1508,7 +1518,7 @@
            <string>Resource Summary</string>
           </attribute>
           <layout class="QGridLayout" name="gridLayout_6">
-           <item row="0" column="0" rowspan="2">
+           <item row="2" column="0" rowspan="2">
             <layout class="QGridLayout" name="gridLayout_17">
              <item row="0" column="0">
               <widget class="QLabel" name="label_26">
@@ -1649,55 +1659,6 @@
                </item>
               </widget>
              </item>
-             <item row="1" column="1" colspan="2">
-              <widget class="QComboBox" name="comboBox_general_description_type">
-               <property name="editable">
-                <bool>true</bool>
-               </property>
-               <item>
-                <property name="text">
-                 <string/>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Comments</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>General Description</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Summary of Significance </string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Architectural Description</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Primary</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Old ArchesID</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-             <item row="0" column="1" colspan="2">
-              <widget class="QLabel" name="label_33">
-               <property name="text">
-                <string>General description type</string>
-               </property>
-              </widget>
-             </item>
              <item row="3" column="1">
               <widget class="QLineEdit" name="mDateEdit_3"/>
              </item>
@@ -1706,17 +1667,17 @@
              </item>
             </layout>
            </item>
-           <item row="0" column="1">
+           <item row="2" column="1">
             <widget class="QLabel" name="label_35">
              <property name="text">
               <string>General description</string>
              </property>
             </widget>
            </item>
-           <item row="1" column="1" rowspan="2">
+           <item row="3" column="1" rowspan="2">
             <widget class="QTextEdit" name="textEdit_general_description"/>
            </item>
-           <item row="2" column="0">
+           <item row="4" column="0">
             <layout class="QGridLayout" name="gridLayout_18">
              <item row="0" column="1">
               <widget class="QPushButton" name="pushButton_remove_resource">
@@ -1874,6 +1835,55 @@
               </widget>
              </item>
             </layout>
+           </item>
+           <item row="1" column="1">
+            <widget class="QComboBox" name="comboBox_general_description_type">
+             <property name="editable">
+              <bool>true</bool>
+             </property>
+             <item>
+              <property name="text">
+               <string/>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Comments</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>General Description</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Summary of Significance </string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Architectural Description</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Primary</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Old ArchesID</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLabel" name="label_33">
+             <property name="text">
+              <string>General description type</string>
+             </property>
+            </widget>
            </item>
           </layout>
          </widget>
@@ -2512,255 +2522,85 @@
           <attribute name="title">
            <string>Archaeological Assessment/1</string>
           </attribute>
-          <layout class="QGridLayout" name="gridLayout_14">
+          <layout class="QGridLayout" name="gridLayout_13">
            <item row="0" column="0">
-            <layout class="QGridLayout" name="gridLayout_13">
-             <item row="2" column="3">
-              <widget class="QTableWidget" name="tableWidget_overall_site_morph">
-               <property name="alternatingRowColors">
-                <bool>true</bool>
-               </property>
-               <property name="selectionMode">
-                <enum>QAbstractItemView::SingleSelection</enum>
-               </property>
-               <attribute name="horizontalHeaderDefaultSectionSize">
-                <number>270</number>
-               </attribute>
-               <attribute name="horizontalHeaderMinimumSectionSize">
-                <number>37</number>
-               </attribute>
-               <column>
-                <property name="text">
-                 <string>Overall Site Morphology Type</string>
-                </property>
-               </column>
-              </widget>
-             </item>
-             <item row="6" column="3">
-              <widget class="QTableWidget" name="tableWidget_measurement_siurce_type">
-               <property name="alternatingRowColors">
-                <bool>true</bool>
-               </property>
-               <property name="selectionMode">
-                <enum>QAbstractItemView::SingleSelection</enum>
-               </property>
-               <attribute name="horizontalHeaderDefaultSectionSize">
-                <number>271</number>
-               </attribute>
-               <attribute name="horizontalHeaderMinimumSectionSize">
-                <number>37</number>
-               </attribute>
-               <column>
-                <property name="text">
-                 <string>Measurement Source Type</string>
-                </property>
-               </column>
-              </widget>
-             </item>
-             <item row="5" column="0" colspan="3">
-              <widget class="QTableWidget" name="tableWidget_site_interpretation_cert">
-               <property name="alternatingRowColors">
-                <bool>true</bool>
-               </property>
-               <property name="selectionMode">
-                <enum>QAbstractItemView::SingleSelection</enum>
-               </property>
-               <attribute name="horizontalHeaderDefaultSectionSize">
-                <number>247</number>
-               </attribute>
-               <attribute name="horizontalHeaderMinimumSectionSize">
-                <number>37</number>
-               </attribute>
-               <column>
-                <property name="text">
-                 <string>Site Feature Interpretation Certainty</string>
-                </property>
-               </column>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QPushButton" name="pushButton_add_arch">
-               <property name="maximumSize">
-                <size>
-                 <width>30</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="text">
-                <string>+</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="4">
-              <widget class="QTableWidget" name="tableWidget_cultural_period_cert">
-               <property name="alternatingRowColors">
-                <bool>true</bool>
-               </property>
-               <property name="selectionMode">
-                <enum>QAbstractItemView::SingleSelection</enum>
-               </property>
-               <attribute name="horizontalHeaderDefaultSectionSize">
-                <number>270</number>
-               </attribute>
-               <attribute name="horizontalHeaderMinimumSectionSize">
-                <number>37</number>
-               </attribute>
-               <column>
-                <property name="text">
-                 <string>Cultural Period Certainty</string>
-                </property>
-               </column>
-              </widget>
-             </item>
-             <item row="3" column="0" colspan="3">
-              <widget class="QTableWidget" name="tableWidget_sub_period_cert">
-               <property name="alternatingRowColors">
-                <bool>true</bool>
-               </property>
-               <property name="selectionMode">
-                <enum>QAbstractItemView::SingleSelection</enum>
-               </property>
-               <attribute name="horizontalHeaderDefaultSectionSize">
-                <number>247</number>
-               </attribute>
-               <attribute name="horizontalHeaderMinimumSectionSize">
-                <number>37</number>
-               </attribute>
-               <column>
-                <property name="text">
-                 <string>Subperiod Certainty</string>
-                </property>
-               </column>
-              </widget>
-             </item>
-             <item row="2" column="0" colspan="3">
-              <widget class="QTableWidget" name="tableWidget_overall_arch_cert">
-               <property name="alternatingRowColors">
-                <bool>true</bool>
-               </property>
-               <property name="selectionMode">
-                <enum>QAbstractItemView::SingleSelection</enum>
-               </property>
-               <attribute name="horizontalHeaderDefaultSectionSize">
-                <number>247</number>
-               </attribute>
-               <attribute name="horizontalHeaderMinimumSectionSize">
-                <number>37</number>
-               </attribute>
-               <column>
-                <property name="text">
-                 <string>Overall Archaeological Certainty Value</string>
-                </property>
-               </column>
-              </widget>
-             </item>
-             <item row="3" column="3">
-              <widget class="QTableWidget" name="tableWidget_site_features_from_type">
-               <property name="alternatingRowColors">
-                <bool>true</bool>
-               </property>
-               <property name="selectionMode">
-                <enum>QAbstractItemView::SingleSelection</enum>
-               </property>
-               <attribute name="horizontalHeaderDefaultSectionSize">
-                <number>270</number>
-               </attribute>
-               <attribute name="horizontalHeaderMinimumSectionSize">
-                <number>37</number>
-               </attribute>
-               <column>
-                <property name="text">
-                 <string>Site Feature Form Type</string>
-                </property>
-               </column>
-              </widget>
-             </item>
-             <item row="4" column="3">
-              <widget class="QTableWidget" name="tableWidget_site_feature_number_type">
-               <property name="alternatingRowColors">
-                <bool>true</bool>
-               </property>
-               <property name="selectionMode">
-                <enum>QAbstractItemView::SingleSelection</enum>
-               </property>
-               <attribute name="horizontalHeaderDefaultSectionSize">
-                <number>270</number>
-               </attribute>
-               <attribute name="horizontalHeaderMinimumSectionSize">
-                <number>37</number>
-               </attribute>
-               <column>
-                <property name="text">
-                 <string>Site Feature Number Type</string>
-                </property>
-               </column>
-              </widget>
-             </item>
-             <item row="3" column="4">
-              <widget class="QTableWidget" name="tableWidget_site_feature_from_type_cert">
-               <property name="alternatingRowColors">
-                <bool>true</bool>
-               </property>
-               <property name="selectionMode">
-                <enum>QAbstractItemView::SingleSelection</enum>
-               </property>
-               <attribute name="horizontalHeaderDefaultSectionSize">
-                <number>270</number>
-               </attribute>
-               <attribute name="horizontalHeaderMinimumSectionSize">
-                <number>37</number>
-               </attribute>
-               <column>
-                <property name="text">
-                 <string>Site Feature Form Type Certainty</string>
-                </property>
-               </column>
-              </widget>
-             </item>
-             <item row="4" column="0" colspan="3">
-              <widget class="QTableWidget" name="tableWidget_site_feature_arrangement_type">
-               <property name="alternatingRowColors">
-                <bool>true</bool>
-               </property>
-               <property name="selectionMode">
-                <enum>QAbstractItemView::SingleSelection</enum>
-               </property>
-               <attribute name="horizontalHeaderDefaultSectionSize">
-                <number>247</number>
-               </attribute>
-               <attribute name="horizontalHeaderMinimumSectionSize">
-                <number>37</number>
-               </attribute>
-               <column>
-                <property name="text">
-                 <string>Site Feature Arrangement Type</string>
-                </property>
-               </column>
-              </widget>
-             </item>
-             <item row="5" column="3">
-              <widget class="QTableWidget" name="tableWidget_built">
-               <property name="alternatingRowColors">
-                <bool>true</bool>
-               </property>
-               <property name="selectionMode">
-                <enum>QAbstractItemView::SingleSelection</enum>
-               </property>
-               <attribute name="horizontalHeaderDefaultSectionSize">
-                <number>270</number>
-               </attribute>
-               <attribute name="horizontalHeaderMinimumSectionSize">
-                <number>37</number>
-               </attribute>
-               <column>
-                <property name="text">
-                 <string>Built Component Related Resource</string>
-                </property>
-               </column>
-              </widget>
-             </item>
-             <item row="4" column="4">
+            <widget class="QLabel" name="label_7">
+             <property name="text">
+              <string>Overall Archaeological Certainty Value</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLabel" name="label_8">
+             <property name="text">
+              <string>Overall Site Morphology Type</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QComboBox" name="comboBox_overall_arch_cert">
+             <property name="editable">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QComboBox" name="comboBox_overall_site_morph">
+             <property name="editable">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0" colspan="2">
+            <widget class="QToolBox" name="toolBox">
+             <property name="font">
+              <font>
+               <weight>50</weight>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <property name="lineWidth">
+              <number>3</number>
+             </property>
+             <property name="midLineWidth">
+              <number>2</number>
+             </property>
+             <property name="currentIndex">
+              <number>3</number>
+             </property>
+             <property name="tabSpacing">
+              <number>12</number>
+             </property>
+             <widget class="QWidget" name="page">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>1186</width>
+                <height>341</height>
+               </rect>
+              </property>
+              <attribute name="label">
+               <string>Site</string>
+              </attribute>
               <widget class="QTableWidget" name="tableWidget_site_feature_interpretation_type">
+               <property name="geometry">
+                <rect>
+                 <x>10</x>
+                 <y>150</y>
+                 <width>297</width>
+                 <height>93</height>
+                </rect>
+               </property>
                <property name="alternatingRowColors">
                 <bool>true</bool>
                </property>
@@ -2768,7 +2608,7 @@
                 <enum>QAbstractItemView::SingleSelection</enum>
                </property>
                <attribute name="horizontalHeaderDefaultSectionSize">
-                <number>270</number>
+                <number>281</number>
                </attribute>
                <attribute name="horizontalHeaderMinimumSectionSize">
                 <number>37</number>
@@ -2779,9 +2619,15 @@
                 </property>
                </column>
               </widget>
-             </item>
-             <item row="6" column="0" colspan="3">
-              <widget class="QTableWidget" name="tableWidget_dimension_type">
+              <widget class="QTableWidget" name="tableWidget_site_feature_from_type_cert">
+               <property name="geometry">
+                <rect>
+                 <x>310</x>
+                 <y>50</y>
+                 <width>297</width>
+                 <height>93</height>
+                </rect>
+               </property>
                <property name="alternatingRowColors">
                 <bool>true</bool>
                </property>
@@ -2789,20 +2635,26 @@
                 <enum>QAbstractItemView::SingleSelection</enum>
                </property>
                <attribute name="horizontalHeaderDefaultSectionSize">
-                <number>247</number>
+                <number>281</number>
                </attribute>
                <attribute name="horizontalHeaderMinimumSectionSize">
                 <number>37</number>
                </attribute>
                <column>
                 <property name="text">
-                 <string>Dimension Type</string>
+                 <string>Site Feature Form Type Certainty</string>
                 </property>
                </column>
               </widget>
-             </item>
-             <item row="5" column="4">
-              <widget class="QTableWidget" name="tableWidget_hp_related">
+              <widget class="QTableWidget" name="tableWidget_site_features_from_type">
+               <property name="geometry">
+                <rect>
+                 <x>10</x>
+                 <y>50</y>
+                 <width>297</width>
+                 <height>93</height>
+                </rect>
+               </property>
                <property name="alternatingRowColors">
                 <bool>true</bool>
                </property>
@@ -2810,262 +2662,26 @@
                 <enum>QAbstractItemView::SingleSelection</enum>
                </property>
                <attribute name="horizontalHeaderDefaultSectionSize">
-                <number>270</number>
+                <number>283</number>
                </attribute>
                <attribute name="horizontalHeaderMinimumSectionSize">
                 <number>37</number>
                </attribute>
                <column>
                 <property name="text">
-                 <string>HP Related Resource</string>
+                 <string>Site Feature Form Type</string>
                 </property>
                </column>
               </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QPushButton" name="pushButton_remove_arch">
-               <property name="maximumSize">
-                <size>
-                 <width>30</width>
-                 <height>16777215</height>
-                </size>
+              <widget class="QTableWidget" name="tableWidget_site_feature_arrangement_type">
+               <property name="geometry">
+                <rect>
+                 <x>610</x>
+                 <y>50</y>
+                 <width>261</width>
+                 <height>93</height>
+                </rect>
                </property>
-               <property name="text">
-                <string>-</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="5">
-              <widget class="QLabel" name="label_51">
-               <property name="text">
-                <string>Cultural Period Type</string>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="5">
-              <widget class="QComboBox" name="comboBox_cultural_period">
-               <property name="editable">
-                <bool>true</bool>
-               </property>
-               <item>
-                <property name="text">
-                 <string/>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Palaeolithic (Levant/Mesopotamia/Arabia)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Palaeolithic (Iran)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Palaeolithic (North Africa)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Epipalaeolithic (Levant/Mesopotamia)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Epipalaeolithic (Arabia)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Epipalaeolithic (Iran)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Epipalaeolithic (North Africa)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Neolithic (Levant/Mesopotamia)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Neolithic (Arabia)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Neolithic (Iran)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Neolithic (Maghreb)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Neolithic (Egypt)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Chalcolithic (Levant)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Chalcolithic (Mesopotamia)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Chalcolithic (Khuzestan, Iran)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Chalcolithic (Central Zagros, Iran)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Chalcolithic (Northern Iran)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Chalcolithic (Southern Iran)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Chalcolithic (Arabia)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Pre-dynastic (Egypt)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Bronze Age (Levant)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Bronze Age (Northern Mesopotamia)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Bronze Age (Southern Mesopotamia)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Bronze Age (Central Zagros, Iran)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Bronze Age (Khuzestan, Iran)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Bronze Age (Northwest Iran)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Bronze Age (Northeast Iran)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Bronze Age (Southern Iran)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Bronze Age (Arabia)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Dynastic Egypt</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Iron Age (Levant/Mesopotamia)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Iron Age (Iran)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Iron Age (Arabia)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Iron Age (Maghreb)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Classical/Pre-Islamic (Levant/Mesopotamia/Iran/Northern Arabia)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>South Arabian Period (Southern Arabia)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Classical/Protohistoric/Pre-Islamic (North Africa)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Islamic (Levant/Arabia)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Islamic (Iraq)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Islamic (Iran)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Islamic (North Africa)</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>Contemporary Islamic (MENA)</string>
-                </property>
-               </item>
-              </widget>
-             </item>
-             <item row="6" column="4">
-              <widget class="QTableWidget" name="tableWidget_measurement_unit">
                <property name="alternatingRowColors">
                 <bool>true</bool>
                </property>
@@ -3073,20 +2689,80 @@
                 <enum>QAbstractItemView::SingleSelection</enum>
                </property>
                <attribute name="horizontalHeaderDefaultSectionSize">
-                <number>270</number>
+                <number>249</number>
                </attribute>
                <attribute name="horizontalHeaderMinimumSectionSize">
                 <number>37</number>
                </attribute>
                <column>
                 <property name="text">
-                 <string>Measurement Unit</string>
+                 <string>Site Feature Arrangement Type</string>
                 </property>
                </column>
               </widget>
-             </item>
-             <item row="5" column="5">
+              <widget class="QTableWidget" name="tableWidget_site_feature_number_type">
+               <property name="geometry">
+                <rect>
+                 <x>876</x>
+                 <y>50</y>
+                 <width>291</width>
+                 <height>93</height>
+                </rect>
+               </property>
+               <property name="alternatingRowColors">
+                <bool>true</bool>
+               </property>
+               <property name="selectionMode">
+                <enum>QAbstractItemView::SingleSelection</enum>
+               </property>
+               <attribute name="horizontalHeaderDefaultSectionSize">
+                <number>281</number>
+               </attribute>
+               <attribute name="horizontalHeaderMinimumSectionSize">
+                <number>37</number>
+               </attribute>
+               <column>
+                <property name="text">
+                 <string>Site Feature Number Type</string>
+                </property>
+               </column>
+              </widget>
+              <widget class="QTableWidget" name="tableWidget_site_interpretation_cert">
+               <property name="geometry">
+                <rect>
+                 <x>310</x>
+                 <y>150</y>
+                 <width>297</width>
+                 <height>93</height>
+                </rect>
+               </property>
+               <property name="alternatingRowColors">
+                <bool>true</bool>
+               </property>
+               <property name="selectionMode">
+                <enum>QAbstractItemView::SingleSelection</enum>
+               </property>
+               <attribute name="horizontalHeaderDefaultSectionSize">
+                <number>281</number>
+               </attribute>
+               <attribute name="horizontalHeaderMinimumSectionSize">
+                <number>37</number>
+               </attribute>
+               <column>
+                <property name="text">
+                 <string>Site Feature Interpretation Certainty</string>
+                </property>
+               </column>
+              </widget>
               <widget class="QTableWidget" name="tableWidget_site_feature_interpretation_number">
+               <property name="geometry">
+                <rect>
+                 <x>610</x>
+                 <y>150</y>
+                 <width>261</width>
+                 <height>93</height>
+                </rect>
+               </property>
                <property name="alternatingRowColors">
                 <bool>true</bool>
                </property>
@@ -3094,7 +2770,7 @@
                 <enum>QAbstractItemView::SingleSelection</enum>
                </property>
                <attribute name="horizontalHeaderDefaultSectionSize">
-                <number>270</number>
+                <number>249</number>
                </attribute>
                <attribute name="horizontalHeaderMinimumSectionSize">
                 <number>37</number>
@@ -3105,9 +2781,93 @@
                 </property>
                </column>
               </widget>
-             </item>
-             <item row="3" column="5">
+              <widget class="QTableWidget" name="tableWidget_site_feature_shape_type">
+               <property name="geometry">
+                <rect>
+                 <x>876</x>
+                 <y>150</y>
+                 <width>291</width>
+                 <height>93</height>
+                </rect>
+               </property>
+               <property name="alternatingRowColors">
+                <bool>true</bool>
+               </property>
+               <property name="selectionMode">
+                <enum>QAbstractItemView::SingleSelection</enum>
+               </property>
+               <attribute name="horizontalHeaderDefaultSectionSize">
+                <number>281</number>
+               </attribute>
+               <attribute name="horizontalHeaderMinimumSectionSize">
+                <number>37</number>
+               </attribute>
+               <column>
+                <property name="text">
+                 <string>Site Feature Shape Type</string>
+                </property>
+               </column>
+              </widget>
+              <widget class="QPushButton" name="pushButton_add_arch">
+               <property name="geometry">
+                <rect>
+                 <x>20</x>
+                 <y>10</y>
+                 <width>30</width>
+                 <height>23</height>
+                </rect>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>30</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>+</string>
+               </property>
+              </widget>
+              <widget class="QPushButton" name="pushButton_remove_arch">
+               <property name="geometry">
+                <rect>
+                 <x>56</x>
+                 <y>10</y>
+                 <width>30</width>
+                 <height>23</height>
+                </rect>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>30</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>-</string>
+               </property>
+              </widget>
+             </widget>
+             <widget class="QWidget" name="page_2">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>1186</width>
+                <height>341</height>
+               </rect>
+              </property>
+              <attribute name="label">
+               <string>Cultural Period</string>
+              </attribute>
               <widget class="QTableWidget" name="tableWidget_cultural_sub_period_cert">
+               <property name="geometry">
+                <rect>
+                 <x>610</x>
+                 <y>30</y>
+                 <width>281</width>
+                 <height>93</height>
+                </rect>
+               </property>
                <property name="alternatingRowColors">
                 <bool>true</bool>
                </property>
@@ -3126,9 +2886,15 @@
                 </property>
                </column>
               </widget>
-             </item>
-             <item row="4" column="5">
-              <widget class="QTableWidget" name="tableWidget_site_feature_shape_type">
+              <widget class="QTableWidget" name="tableWidget_cultural_period_cert">
+               <property name="geometry">
+                <rect>
+                 <x>310</x>
+                 <y>30</y>
+                 <width>287</width>
+                 <height>93</height>
+                </rect>
+               </property>
                <property name="alternatingRowColors">
                 <bool>true</bool>
                </property>
@@ -3143,12 +2909,348 @@
                </attribute>
                <column>
                 <property name="text">
-                 <string>Site Feature Shape Type</string>
+                 <string>Cultural Period Certainty</string>
                 </property>
                </column>
               </widget>
-             </item>
-            </layout>
+              <widget class="QTableWidget" name="tableWidget_cultural_period_type">
+               <property name="geometry">
+                <rect>
+                 <x>10</x>
+                 <y>30</y>
+                 <width>281</width>
+                 <height>93</height>
+                </rect>
+               </property>
+               <property name="alternatingRowColors">
+                <bool>true</bool>
+               </property>
+               <property name="selectionMode">
+                <enum>QAbstractItemView::SingleSelection</enum>
+               </property>
+               <attribute name="horizontalHeaderDefaultSectionSize">
+                <number>270</number>
+               </attribute>
+               <attribute name="horizontalHeaderMinimumSectionSize">
+                <number>37</number>
+               </attribute>
+               <column>
+                <property name="text">
+                 <string>Cultural Period Type</string>
+                </property>
+               </column>
+              </widget>
+              <widget class="QPushButton" name="pushButton_remove_arch_2">
+               <property name="geometry">
+                <rect>
+                 <x>56</x>
+                 <y>0</y>
+                 <width>30</width>
+                 <height>23</height>
+                </rect>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>30</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>-</string>
+               </property>
+              </widget>
+              <widget class="QPushButton" name="pushButton_add_arch_2">
+               <property name="geometry">
+                <rect>
+                 <x>20</x>
+                 <y>0</y>
+                 <width>30</width>
+                 <height>23</height>
+                </rect>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>30</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>+</string>
+               </property>
+              </widget>
+              <widget class="QTableWidget" name="tableWidget_sub_period_cert">
+               <property name="geometry">
+                <rect>
+                 <x>900</x>
+                 <y>30</y>
+                 <width>287</width>
+                 <height>93</height>
+                </rect>
+               </property>
+               <property name="alternatingRowColors">
+                <bool>true</bool>
+               </property>
+               <property name="selectionMode">
+                <enum>QAbstractItemView::SingleSelection</enum>
+               </property>
+               <attribute name="horizontalHeaderDefaultSectionSize">
+                <number>270</number>
+               </attribute>
+               <attribute name="horizontalHeaderMinimumSectionSize">
+                <number>37</number>
+               </attribute>
+               <column>
+                <property name="text">
+                 <string>Subperiod Certainty</string>
+                </property>
+               </column>
+              </widget>
+             </widget>
+             <widget class="QWidget" name="page_3">
+              <attribute name="label">
+               <string>Measurement</string>
+              </attribute>
+              <widget class="QTableWidget" name="tableWidget_dimension_type">
+               <property name="geometry">
+                <rect>
+                 <x>20</x>
+                 <y>50</y>
+                 <width>256</width>
+                 <height>93</height>
+                </rect>
+               </property>
+               <property name="alternatingRowColors">
+                <bool>true</bool>
+               </property>
+               <property name="selectionMode">
+                <enum>QAbstractItemView::SingleSelection</enum>
+               </property>
+               <attribute name="horizontalHeaderDefaultSectionSize">
+                <number>247</number>
+               </attribute>
+               <attribute name="horizontalHeaderMinimumSectionSize">
+                <number>37</number>
+               </attribute>
+               <column>
+                <property name="text">
+                 <string>Dimension Type</string>
+                </property>
+               </column>
+              </widget>
+              <widget class="QTableWidget" name="tableWidget_measurement_siurce_type">
+               <property name="geometry">
+                <rect>
+                 <x>300</x>
+                 <y>50</y>
+                 <width>287</width>
+                 <height>93</height>
+                </rect>
+               </property>
+               <property name="alternatingRowColors">
+                <bool>true</bool>
+               </property>
+               <property name="selectionMode">
+                <enum>QAbstractItemView::SingleSelection</enum>
+               </property>
+               <attribute name="horizontalHeaderDefaultSectionSize">
+                <number>271</number>
+               </attribute>
+               <attribute name="horizontalHeaderMinimumSectionSize">
+                <number>37</number>
+               </attribute>
+               <column>
+                <property name="text">
+                 <string>Measurement Source Type</string>
+                </property>
+               </column>
+              </widget>
+              <widget class="QTableWidget" name="tableWidget_measurement_unit">
+               <property name="geometry">
+                <rect>
+                 <x>600</x>
+                 <y>50</y>
+                 <width>287</width>
+                 <height>93</height>
+                </rect>
+               </property>
+               <property name="alternatingRowColors">
+                <bool>true</bool>
+               </property>
+               <property name="selectionMode">
+                <enum>QAbstractItemView::SingleSelection</enum>
+               </property>
+               <attribute name="horizontalHeaderDefaultSectionSize">
+                <number>270</number>
+               </attribute>
+               <attribute name="horizontalHeaderMinimumSectionSize">
+                <number>37</number>
+               </attribute>
+               <column>
+                <property name="text">
+                 <string>Measurement Unit</string>
+                </property>
+               </column>
+              </widget>
+              <widget class="QLineEdit" name="lineEdit_measurement_number">
+               <property name="geometry">
+                <rect>
+                 <x>140</x>
+                 <y>180</y>
+                 <width>133</width>
+                 <height>20</height>
+                </rect>
+               </property>
+              </widget>
+              <widget class="QLabel" name="label_5">
+               <property name="geometry">
+                <rect>
+                 <x>30</x>
+                 <y>179</y>
+                 <width>105</width>
+                 <height>16</height>
+                </rect>
+               </property>
+               <property name="text">
+                <string>Measurement Number</string>
+               </property>
+              </widget>
+              <widget class="QPushButton" name="pushButton_remove_arch_3">
+               <property name="geometry">
+                <rect>
+                 <x>56</x>
+                 <y>20</y>
+                 <width>30</width>
+                 <height>23</height>
+                </rect>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>30</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>-</string>
+               </property>
+              </widget>
+              <widget class="QPushButton" name="pushButton_add_arch_3">
+               <property name="geometry">
+                <rect>
+                 <x>20</x>
+                 <y>20</y>
+                 <width>30</width>
+                 <height>23</height>
+                </rect>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>30</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>+</string>
+               </property>
+              </widget>
+             </widget>
+             <widget class="QWidget" name="page_5">
+              <attribute name="label">
+               <string>Releted</string>
+              </attribute>
+              <widget class="QTableWidget" name="tableWidget_hp_related">
+               <property name="geometry">
+                <rect>
+                 <x>320</x>
+                 <y>30</y>
+                 <width>287</width>
+                 <height>93</height>
+                </rect>
+               </property>
+               <property name="alternatingRowColors">
+                <bool>true</bool>
+               </property>
+               <property name="selectionMode">
+                <enum>QAbstractItemView::SingleSelection</enum>
+               </property>
+               <attribute name="horizontalHeaderDefaultSectionSize">
+                <number>270</number>
+               </attribute>
+               <attribute name="horizontalHeaderMinimumSectionSize">
+                <number>37</number>
+               </attribute>
+               <column>
+                <property name="text">
+                 <string>HP Related Resource</string>
+                </property>
+               </column>
+              </widget>
+              <widget class="QTableWidget" name="tableWidget_built">
+               <property name="geometry">
+                <rect>
+                 <x>27</x>
+                 <y>30</y>
+                 <width>287</width>
+                 <height>93</height>
+                </rect>
+               </property>
+               <property name="alternatingRowColors">
+                <bool>true</bool>
+               </property>
+               <property name="selectionMode">
+                <enum>QAbstractItemView::SingleSelection</enum>
+               </property>
+               <attribute name="horizontalHeaderDefaultSectionSize">
+                <number>270</number>
+               </attribute>
+               <attribute name="horizontalHeaderMinimumSectionSize">
+                <number>37</number>
+               </attribute>
+               <column>
+                <property name="text">
+                 <string>Built Component Related Resource</string>
+                </property>
+               </column>
+              </widget>
+              <widget class="QPushButton" name="pushButton_remove_arch_4">
+               <property name="geometry">
+                <rect>
+                 <x>60</x>
+                 <y>0</y>
+                 <width>30</width>
+                 <height>23</height>
+                </rect>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>30</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>-</string>
+               </property>
+              </widget>
+              <widget class="QPushButton" name="pushButton_add_arch_4">
+               <property name="geometry">
+                <rect>
+                 <x>30</x>
+                 <y>0</y>
+                 <width>30</width>
+                 <height>23</height>
+                </rect>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>30</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>+</string>
+               </property>
+              </widget>
+             </widget>
+            </widget>
            </item>
           </layout>
          </widget>
@@ -3198,13 +3300,6 @@
              <widget class="QLabel" name="label_45">
               <property name="text">
                <string>SH Date From</string>
-              </property>
-             </widget>
-            </item>
-            <item row="4" column="0">
-             <widget class="QLabel" name="label_47">
-              <property name="text">
-               <string>Measurement Number</string>
               </property>
              </widget>
             </item>
@@ -3383,8 +3478,12 @@
             <item row="1" column="3">
              <widget class="QLineEdit" name="lineEdit_arch_date"/>
             </item>
-            <item row="5" column="0">
-             <widget class="QLineEdit" name="lineEdit_measurement_number"/>
+            <item row="4" column="0">
+             <widget class="QLabel" name="label_47">
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
             </item>
            </layout>
           </widget>
