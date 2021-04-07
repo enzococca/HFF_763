@@ -181,8 +181,7 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
         ID_TABLE,
         "Location", 
         "Resource Name", 
-        "Grid", 
-        "Heritage place type"
+        "Grid"
     ]
     TABLE_FIELDS = [
         "location",
@@ -313,7 +312,7 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
         self.tableWidget_geometry_place.update()
         search_dict = {
             'location': "'" + str(self.comboBox_location.currentText()) + "'",
-            'name_feat': "'" + str(self.comboBox_name_site.currentText()) + "'"
+            #'name_feat': "'" + str(self.comboBox_name_site.currentText()) + "'"
         }
     
         geometry_vl = self.DB_MANAGER.query_bool(search_dict,'SITE_POLYGON')
@@ -324,7 +323,7 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
         
         search_dict1 = {
             'location': "'" + str(self.comboBox_location.currentText()) + "'",
-            'name_f_l': "'" + str(self.comboBox_name_site.currentText()) + "'"
+            #'name_f_l': "'" + str(self.comboBox_name_site.currentText()) + "'"
         }
     
         geometry_vl_1 = self.DB_MANAGER.query_bool(search_dict1,'SITE_LINE')
@@ -334,7 +333,7 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
             
         search_dict2 = {
             'location': "'" + str(self.comboBox_location.currentText()) + "'",
-            'name_f_p': "'" + str(self.comboBox_name_site.currentText()) + "'"
+            #'name_f_p': "'" + str(self.comboBox_name_site.currentText()) + "'"
         }
     
         geometry_vl_2 = self.DB_MANAGER.query_bool(search_dict2,'SITE_POINT')

@@ -36,7 +36,7 @@ from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import *#QDialog, QMessageBox, QAbstractItemView, QListWidgetItem, QFileDialog, QTableWidgetItem,QWidget
 from qgis.PyQt.uic import loadUiType
 from qgis.core import QgsSettings
-from gui.imageViewer import ImageViewer
+from ..gui.imageViewer import ImageViewer
 from ..modules.db.hff_system__conn_strings import *
 from ..modules.db.hff_db_manager import *
 from ..modules.db.hff_system__utility import *
