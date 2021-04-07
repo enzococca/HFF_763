@@ -824,17 +824,23 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
         site_location_certainty= self.table2dict("self.tableWidget_site_location_certainty") 
         geometry_extent= self.table2dict("self.tableWidget_geometry_extent") 
         country_type= self.table2dict("self.tableWidget_country_type") 
-        overall_condition_state = self.table2dict("self.tableWidget_overall_condition_state") 
-        damage= self.table2dict("self.tableWidget_damage") 
+        #overall_condition_state = self.table2dict("self.tableWidget_overall_condition_state") 
+        #damage= self.table2dict("self.tableWidget_damage") 
+        disturbance_cause_category= self.table2dict("self.tableWidget_disturbance_causa_category") 
+        disturbance_date_from= self.table2dict("self.tableWidget_disturbance_date_from")
+        disturbance_date_to= self.table2dict("self.tableWidget_disturbance_date_to") 
+        disturbance_date_occurred_before= self.table2dict("self.tableWidget_date_occurred_before")
+        disturbance_date_occurred_on= self.table2dict("self.tableWidget_disturbance_date_occurred_on")
         disturbance_cause= self.table2dict("self.tableWidget_disturbance_cause") 
         disturbance_cause_2= self.table2dict("self.tableWidget_disturbance_cause_2") 
         effect_type= self.table2dict("self.tableWidget_effect_type") 
         effect_certainty= self.table2dict("self.tableWidget_effect_certainty") 
         threat_type= self.table2dict("self.tableWidget_threat_type") 
-        threat_probability= self.table2dict("self.tableWidget_threat_probability") 
+        threat_probability= self.table2dict("self.tableWidget_threat_probability")
+        threat_category= self.table2dict("self.tableWidget_threat_category")         
         topography_type= self.table2dict("self.tableWidget_topography_type") 
-        oac=  self.table2dict("self.tableWidget_overall_arch_cert")
-        osm=  self.table2dict("self.tableWidget_overall_site_morph")
+        surficial= self.table2dict("self.tableWidget_surficial") 
+        osm=  self.table2dict("self.tableWidget_cultural_period_type")
         cpc=  self.table2dict("self.tableWidget_cultural_period_cert")
         cspc= self.table2dict("self.tableWidget_cultural_sub_period_cert")
         spc=   self.table2dict("self.tableWidget_sub_period_cert")
@@ -851,8 +857,9 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
         mu=  self.table2dict("self.tableWidget_measurement_unit")
         dt=  self.table2dict("self.tableWidget_dimension_type")
         mst= self.table2dict("self.tableWidget_measurement_siurce_type")
-        
-        
+        ge=  self.table2dict("self.tableWidget_mDateEdit_1")
+        general_description_type= self.table2dict("self.tableWidget_general_description_type")
+        general_description = self.table2dict("self.tableWidget_general_description")
         
         
         try:
@@ -864,14 +871,14 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
                 str(activity),
                 str(date_activity),
                 str(self.comboBox_ge_assessment.currentText()),  # 3 - regione
-                self.mDateEdit_1.text(), # 8 - path
+                str(ge), # 8 - path
                 str(self.comboBox_information_resource_used.currentText()),  # 3 - regione
                 str(self.mDateEdit_2.text()), # 8 - path
                 str(self.comboBox_name_site.currentText()),  
                 str(self.comboBox_resource_type.currentText()),  
                 str(hplacetype),
-                str(self.comboBox_general_description_type.currentText()), 
-                str(self.textEdit_general_description.toPlainText()),  
+                str(general_description_type), 
+                str(general_description),  
                 str(hplacefuntion),
                 str(hplacefunctioncertainty),
                 str(self.comboBox_designation.currentText()),
@@ -890,9 +897,9 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
                 str(self.comboBox_address_type.currentText()),  # 4 - comune
                 str(self.comboBox_administrative_subvision.currentText()),  # 4 - comune
                 str(self.comboBox_administrative_subvision_type.currentText()), 
-                str(oac),
+                str(self.comboBox_overall_arch_cert.currentText()),
                 str(osm),
-                str(self.comboBox_cultural_period.currentText()),
+                str(self.comboBox_overall_site_morph.currentText()),
                 str(cpc),
                 str(cspc),
                 str(spc),
@@ -923,22 +930,22 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
                 str(dt), 
                 str(mst),        
                 str(self.comboBox_related_geoarch.currentText()),
-                str(overall_condition_state),
-                str(damage),
-                str(self.comboBox_disturbance_cause_category.currentText()),  # 4 - comune
+                str(self.comboBox_overall_condition_state.currentText()),
+                str(self.comboBox_damage.currentText()),
+                str(disturbance_causa_category),  # 4 - comune
                 str(disturbance_cause),
                 str(disturbance_cause_2),
-                str(self.mDateEdit_5.text()),
-                str(self.mDateEdit_6.text()),
-                str(self.mDateEdit_7.text()),
-                str(self.mDateEdit_8.text()),
+                str(disturbance_date_from),
+                str(disturbance_date_to),
+                str(disturbance_date_occurred_before),
+                str(disturbance_date_occurred_on),
                 str(self.comboBox_disturbance_cause_ass.currentText()),
                 str(effect_type),
                 str(effect_certainty),
                 str(self.comboBox_threat_category.currentText()),  # 4 - comune
                 str(threat_type),
                 str(threat_probability),
-                str(self.comboBox_threat.currentText()),  # 4 - comune
+                str(threat_category),  # 4 - comune
                 str(self.comboBox_int_activity_type.currentText()),  # 4 - comune
                 str(self.comboBox_raccomandation.currentText()),  # 4 - comune
                 str(self.comboBox_priority.currentText()),  # 4 - comune
@@ -946,7 +953,7 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
                 str(topography_type),
                 str(self.comboBox_land_cover_type.currentText()),  # 4 - comune
                 str(self.lineEdit_land_cover_assessment.text()),  # 4 - comune
-                str(self.comboBox_surficial.currentText()),  # 4 - comune
+                str(surficial),  # 4 - comune
                 str(self.comboBox_depositional.currentText()),  # 4 - comune
                 str(self.comboBox_bedrock.currentText()),  # 4 - comune
                 str(self.comboBox_fetch.currentText()),  # 4 - comune
@@ -995,42 +1002,66 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
         self.remove_row('self.tableWidget_hplacefunctioncertainty')
     def on_pushButton_add_geometry_pressed(self):
         self.insert_new_row('self.tableWidget_geometry_place')
-        self.insert_new_row('self.tableWidget_site_location_certainty')
         self.insert_new_row('self.tableWidget_geometry_extent')
-        self.insert_new_row('self.tableWidget_country_type')
     def on_pushButton_remove_geometry_pressed(self):
         self.remove_row('self.tableWidget_geometry_place')
-        self.remove_row('self.tableWidget_site_location_certainty')
         self.remove_row('self.tableWidget_geometry_extent')
+    def on_pushButton_add_geometry_2_pressed(self):
+        self.insert_new_row('self.tableWidget_site_location_certainty')
+        self.insert_new_row('self.tableWidget_country_type')
+    def on_pushButton_remove_geometry_2_pressed(self):
+        self.remove_row('self.tableWidget_site_location_certainty')
         self.remove_row('self.tableWidget_country_type')
+    
+    
+    
     def on_pushButton_add_condition_pressed(self):
-        self.insert_new_row('self.tableWidget_overall_condition_state')
-        self.insert_new_row('self.tableWidget_damage')
+        
+        self.insert_new_row('self.tableWidget_disturbance_causa_category')
         self.insert_new_row('self.tableWidget_disturbance_cause')
         self.insert_new_row('self.tableWidget_disturbance_cause_2')
-        self.insert_new_row('self.tableWidget_effect_type')
-        self.insert_new_row('self.tableWidget_effect_certainty')
-        self.insert_new_row('self.tableWidget_threat_type')
-        self.insert_new_row('self.tableWidget_threat_probability')
+        self.insert_new_row('self.tableWidget_disturbance_date_from')
+        self.insert_new_row('self.tableWidget_disturbance_date_to')
+        self.insert_new_row('self.tableWidget_disturbance_date_occurred_on')
+        self.insert_new_row('self.tableWidget_disturbance_date_occurred_before')
     def on_pushButton_remove_condition_pressed(self):
-        self.remove_row('self.tableWidget_overall_condition_state')
-        self.remove_row('self.tableWidget_damage')
+        self.remove_row('self.tableWidget_disturbance_causa_category')
         self.remove_row('self.tableWidget_disturbance_cause')
         self.remove_row('self.tableWidget_disturbance_cause_2')
-        self.remove_row('self.tableWidget_effect_type')
-        self.remove_row('self.tableWidget_effect_certainty')
+        self.remove_row('self.tableWidget_disturbance_date_from')
+        self.remove_row('self.tableWidget_disturbance_date_to')
+        self.remove_row('self.tableWidget_disturbance_date_occurred_on')
+        self.remove_row('self.tableWidget_disturbance_date_occurred_before')
+        
+    
+    def on_pushButton_add_condition_2_pressed(self):
+        
+        self.insert_new_row('self.tableWidget_threat_type')
+        self.insert_new_row('self.tableWidget_threat_probability')
+        self.insert_new_row('self.tableWidget_threat_category')
+    def on_pushButton_remove_condition_2_pressed(self):
+        
         self.remove_row('self.tableWidget_threat_type')
         self.remove_row('self.tableWidget_threat_probability')
+        self.remove_row('self.tableWidget_threat_category')
+    def on_pushButton_add_condition_3_pressed(self):
+        
+        self.insert_new_row('self.tableWidget_effect_type')
+        self.insert_new_row('self.tableWidget_effect_certainty')
+        
+    def on_pushButton_remove_condition_3_pressed(self):
+        
+        self.remove_row('self.tableWidget_effect_type')
+        self.remove_row('self.tableWidget_effect_certainty')
+        
     def on_pushButton_add_topography_pressed(self):
         self.insert_new_row('self.tableWidget_topography_type')
+        self.insert_new_row('self.tableWidget_surficial')
     def on_pushButton_remove_topography_pressed(self):
         self.remove_row('self.tableWidget_topography_type')
+        self.remove_row('self.tableWidget_surficial')
     def on_pushButton_add_arch_pressed(self):
-        self.insert_new_row('self.tableWidget_overall_arch_cert')
-        self.insert_new_row('self.tableWidget_overall_site_morph')
-        self.insert_new_row('self.tableWidget_cultural_period_cert')
-        self.insert_new_row('self.tableWidget_cultural_sub_period_cert')
-        self.insert_new_row('self.tableWidget_sub_period_cert')
+        
         self.insert_new_row('self.tableWidget_site_features_from_type')
         self.insert_new_row('self.tableWidget_site_feature_from_type_cert')
         self.insert_new_row('self.tableWidget_site_feature_shape_type')
@@ -1038,19 +1069,10 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
         self.insert_new_row('self.tableWidget_site_feature_number_type')
         self.insert_new_row('self.tableWidget_site_feature_interpretation_type')
         self.insert_new_row('self.tableWidget_site_feature_interpretation_number')
-        
         self.insert_new_row('self.tableWidget_site_interpretation_cert')
-        self.insert_new_row('self.tableWidget_built')
-        self.insert_new_row('self.tableWidget_hp_related')
-        self.insert_new_row('self.tableWidget_measurement_unit')
-        self.insert_new_row('self.tableWidget_dimension_type')
-        self.insert_new_row('self.tableWidget_measurement_siurce_type')
+        
     def on_pushButton_remove_arch_pressed(self):
-        self.remove_row('self.tableWidget_overall_arch_cert')
-        self.remove_row('self.tableWidget_overall_site_morph')
-        self.remove_row('self.tableWidget_cultural_period_cert')
-        self.remove_row('self.tableWidget_cultural_sub_period_cert')
-        self.remove_row('self.tableWidget_sub_period_cert')
+        
         self.remove_row('self.tableWidget_site_features_from_type')
         self.remove_row('self.tableWidget_site_feature_from_type_cert')
         self.remove_row('self.tableWidget_site_feature_shape_type')
@@ -1058,13 +1080,57 @@ class Eamena(QDialog, MAIN_DIALOG_CLASS):
         self.remove_row('self.tableWidget_site_feature_number_type')
         self.remove_row('self.tableWidget_site_feature_interpretation_type')
         self.remove_row('self.tableWidget_site_feature_interpretation_number')
-        
         self.remove_row('self.tableWidget_site_interpretation_cert')
-        self.remove_row('self.tableWidget_built')
-        self.remove_row('self.tableWidget_hp_related')
+        
+    
+    def on_pushButton_add_arch_2_pressed(self):
+        
+        self.insert_new_row('self.tableWidget_cultural_period_type')
+        self.insert_new_row('self.tableWidget_cultural_period_cert')
+        self.insert_new_row('self.tableWidget_cultural_sub_period_cert')
+        self.insert_new_row('self.tableWidget_sub_period_cert')
+        
+    def on_pushButton_remove_arch_2_pressed(self):
+        
+        self.remove_row('self.tableWidget_cultural_period_type')
+        self.remove_row('self.tableWidget_cultural_period_cert')
+        self.remove_row('self.tableWidget_cultural_sub_period_cert')
+        self.remove_row('self.tableWidget_sub_period_cert')
+        
+    
+    def on_pushButton_add_arch_3_pressed(self):
+        
+        self.insert_new_row('self.tableWidget_measurement_unit')
+        self.insert_new_row('self.tableWidget_dimension_type')
+        self.insert_new_row('self.tableWidget_measurement_siurce_type')
+    def on_pushButton_remove_arch_3_pressed(self):
+        
         self.remove_row('self.tableWidget_measurement_unit')
         self.remove_row('self.tableWidget_dimension_type')
         self.remove_row('self.tableWidget_measurement_siurce_type')
+    
+    def on_pushButton_add_arch_4_pressed(self):
+        
+        self.insert_new_row('self.tableWidget_built')
+        self.insert_new_row('self.tableWidget_hp_related')
+        
+    def on_pushButton_remove_arch_4_pressed(self):
+        
+        self.remove_row('self.tableWidget_built')
+        self.remove_row('self.tableWidget_hp_related')
+        
+    
+    def on_pushButton_add_ge_pressed(self):
+        self.insert_new_row('self.tableWidget_mDateEdit_1')
+    def on_pushButton_remove_ge_pressed(self):
+        self.remove_row('self.tableWidget_mDateEdit_1')
+    
+    def on_pushButton_add_description_pressed(self):
+        self.insert_new_row('self.tableWidget_general_description_type')
+        self.insert_new_row('self.tableWidget_general_description')
+    def on_pushButton_remove_description_pressed(self):
+        self.remove_row('self.tableWidget_general_description_type')
+        self.remove_row('self.tableWidget_general_description')
     
     
     def insert_new_row(self, table_name):
