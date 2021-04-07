@@ -1331,7 +1331,7 @@
            <item row="1" column="1">
             <layout class="QGridLayout" name="gridLayout_2">
              <item row="0" column="1">
-              <widget class="QPushButton" name="pushButton_remove_assessment_2">
+              <widget class="QPushButton" name="pushButton_remove_ge">
                <property name="maximumSize">
                 <size>
                  <width>30</width>
@@ -1344,7 +1344,7 @@
               </widget>
              </item>
              <item row="0" column="0">
-              <widget class="QPushButton" name="pushButton_add_assessment_2">
+              <widget class="QPushButton" name="pushButton_add_ge">
                <property name="maximumSize">
                 <size>
                  <width>30</width>
@@ -1831,7 +1831,7 @@
               <attribute name="label">
                <string>Heritage</string>
               </attribute>
-              <widget class="QWidget" name="">
+              <widget class="QWidget" name="layoutWidget">
                <property name="geometry">
                 <rect>
                  <x>10</x>
@@ -2004,7 +2004,7 @@
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>911</width>
+                <width>1026</width>
                 <height>496</height>
                </rect>
               </property>
@@ -2072,7 +2072,7 @@
                   </widget>
                  </item>
                  <item row="0" column="0">
-                  <widget class="QPushButton" name="pushButton_add_resource_2">
+                  <widget class="QPushButton" name="pushButton_add_description">
                    <property name="maximumSize">
                     <size>
                      <width>30</width>
@@ -2118,7 +2118,7 @@
                   </widget>
                  </item>
                  <item row="0" column="1">
-                  <widget class="QPushButton" name="pushButton_remove_resource_2">
+                  <widget class="QPushButton" name="pushButton_remove_description">
                    <property name="maximumSize">
                     <size>
                      <width>30</width>
@@ -2475,7 +2475,7 @@
            <item row="1" column="0">
             <widget class="QToolBox" name="toolBox_4">
              <property name="currentIndex">
-              <number>0</number>
+              <number>1</number>
              </property>
              <widget class="QWidget" name="page_11">
               <property name="geometry">
@@ -2817,7 +2817,7 @@
               <number>2</number>
              </property>
              <property name="currentIndex">
-              <number>0</number>
+              <number>4</number>
              </property>
              <property name="tabSpacing">
               <number>12</number>
@@ -3382,6 +3382,14 @@
               </layout>
              </widget>
              <widget class="QWidget" name="page_13">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>1024</width>
+                <height>400</height>
+               </rect>
+              </property>
               <attribute name="label">
                <string>Date</string>
               </attribute>
@@ -3665,7 +3673,7 @@
                   </widget>
                  </item>
                  <item row="1" column="0" colspan="5">
-                  <widget class="QTableWidget" name="tableWidget_overall_condition_state">
+                  <widget class="QTableWidget" name="tableWidget_disturbance_causa_category">
                    <property name="minimumSize">
                     <size>
                      <width>250</width>
@@ -3746,7 +3754,7 @@
                   </widget>
                  </item>
                  <item row="2" column="3" colspan="3">
-                  <widget class="QTableWidget" name="tableWidget_2">
+                  <widget class="QTableWidget" name="tableWidget_disturbance_date_to">
                    <attribute name="horizontalHeaderDefaultSectionSize">
                     <number>246</number>
                    </attribute>
@@ -3758,7 +3766,7 @@
                   </widget>
                  </item>
                  <item row="2" column="6" colspan="2">
-                  <widget class="QTableWidget" name="tableWidget_3">
+                  <widget class="QTableWidget" name="tableWidget_disturbance_date_occurred_before">
                    <attribute name="horizontalHeaderDefaultSectionSize">
                     <number>246</number>
                    </attribute>
@@ -3770,7 +3778,7 @@
                   </widget>
                  </item>
                  <item row="2" column="8">
-                  <widget class="QTableWidget" name="tableWidget_4">
+                  <widget class="QTableWidget" name="tableWidget_disturbance_date_occurred_on">
                    <attribute name="horizontalHeaderDefaultSectionSize">
                     <number>246</number>
                    </attribute>
@@ -3815,7 +3823,7 @@
                   </widget>
                  </item>
                  <item row="2" column="0" colspan="3">
-                  <widget class="QTableWidget" name="tableWidget">
+                  <widget class="QTableWidget" name="tableWidget_disturbance_date_from">
                    <attribute name="horizontalHeaderDefaultSectionSize">
                     <number>246</number>
                    </attribute>
@@ -3971,6 +3979,14 @@
               </layout>
              </widget>
              <widget class="QWidget" name="page_9">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>1026</width>
+                <height>504</height>
+               </rect>
+              </property>
               <attribute name="label">
                <string>Effect</string>
               </attribute>
@@ -4062,6 +4078,14 @@
               </layout>
              </widget>
              <widget class="QWidget" name="page_10">
+              <property name="geometry">
+               <rect>
+                <x>0</x>
+                <y>0</y>
+                <width>1026</width>
+                <height>504</height>
+               </rect>
+              </property>
               <attribute name="label">
                <string>Other</string>
               </attribute>
